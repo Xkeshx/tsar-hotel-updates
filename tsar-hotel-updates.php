@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TSAR HOTEL Website Updates
  * Description: Reversible navigation repairs, Android/mobile layout fixes, empty social-link cleanup, configurable enquiry panels, and optional homepage SEO for TSAR HOTEL.
- * Version: 1.2.2
+ * Version: 1.3.0
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: TSAR HOTEL project
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class Plugin {
-	const VERSION = '1.2.2';
+	const VERSION = '1.3.0';
 	const OPTION = 'tsar_hotel_updates_settings';
 	const GROUP = 'tsar_hotel_updates_group';
 	const PAGE = 'tsar-hotel-updates';
@@ -119,689 +119,872 @@ final class Plugin {
 	}
 
 	public static function inline_css() {
-		return '/* Scoped, local-only styles. No fonts, scripts, cookies or external assets. */
+		return '/* Scoped, local-only styles for TSAR HOTEL Website Updates (v1.3.0 - 1:1 K-Hotel Douala Design) */
 body.tsar-updates-clean-socials #colophon a.ast-builder-social-element[href=""],
 body.tsar-updates-clean-socials #colophon a.ast-builder-social-element[href="#"],
 body.tsar-updates-clean-socials #colophon a.ast-builder-social-element:not([href]) {
-  display: none !important;
-}
-
-.tsar-updates-contact {
-  --tsar-ink: #192b37;
-  --tsar-gold: #806019;
-  --tsar-border: #decba2;
-  box-sizing: border-box;
-  display: block;
-  position: static;
-  width: 100%;
-  max-width: 100%;
-  margin: 1rem 0 1.5rem;
-  padding: clamp(1rem, 2.5vw, 1.65rem);
-  color: var(--tsar-ink);
-  background: #fffdf8;
-  border: 1px solid var(--tsar-border);
-  border-top: 3px solid #b08935;
-  border-radius: 12px;
-  font: inherit;
-  overflow-wrap: anywhere;
-}
-.tsar-updates-contact *,
-.tsar-updates-contact *::before,
-.tsar-updates-contact *::after {
-  box-sizing: border-box;
-}
-.tsar-updates-contact .tsar-updates-contact__brand {
-  margin: 0 0 .45rem;
-  color: var(--tsar-gold);
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .065em;
-  line-height: 1.5;
-}
-.tsar-updates-contact h2 {
-  margin: 0 0 .45rem;
-  color: var(--tsar-ink);
-  font-family: inherit;
-  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-  font-weight: 700;
-  line-height: 1.25;
-}
-.tsar-updates-contact .tsar-updates-contact__note {
-  margin: 0;
-  max-width: 75ch;
-  color: #445460;
-  font-size: .925rem;
-  line-height: 1.65;
-}
-.tsar-updates-contact__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  gap: .65rem;
-  margin-top: 1rem;
-}
-.tsar-updates-contact a.tsar-updates-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 46px;
-  max-width: 100%;
-  padding: .7rem 1rem;
-  border: 1px solid #192b37;
-  border-radius: 7px;
-  background: #192b37;
-  color: #fff;
-  font-family: inherit;
-  font-size: .925rem;
-  font-weight: 650;
-  line-height: 1.35;
-  text-align: center;
-  text-decoration: none;
-  white-space: normal;
-  box-shadow: none;
-}
-.tsar-updates-contact a.tsar-updates-action--whatsapp {
-  background: #126946;
-  border-color: #126946;
-}
-.tsar-updates-contact a.tsar-updates-action--email {
-  background: #fffdf8;
-  color: #192b37;
-}
-.tsar-updates-contact a.tsar-updates-action:hover {
-  filter: brightness(.92);
-  text-decoration: none;
-}
-.tsar-updates-contact a:focus-visible {
-  outline: 3px solid #936508;
-  outline-offset: 4px;
-}
-.tsar-updates-contact__profiles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem 1.1rem;
-  margin-top: 1rem;
-  padding-top: .9rem;
-  border-top: 1px solid #e7ddc8;
-}
-.tsar-updates-contact__profiles a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  color: #415260;
-  font-size: .875rem;
-  font-weight: 600;
-  line-height: 1.4;
-  text-decoration: underline;
-  text-underline-offset: .18em;
-}
-@media (max-width: 520px) {
-  .tsar-updates-contact__actions {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .tsar-updates-contact a.tsar-updates-action {
-    width: 100%;
-    min-height: 48px;
-  }
-}
-
-/* Reversible Android / mobile layout fixes (toggleable in Settings -> TSAR HOTEL Updates) */
-body.tsar-updates-mobile-fixes #colophon #media_image-1 h2.widget-title,
-body.tsar-updates-mobile-fixes #colophon h2.wp-block-heading,
-body.tsar-updates-mobile-fixes .site-footer h2.wp-block-heading {
-  color: #f3e5ab !important;
-}
-
-@media (max-width: 782px) {
-  /* 1. Prevent "Home" page title from colliding with the Astra Transparent Header logo on Android */
-  body.home.tsar-updates-mobile-fixes .entry-header {
-    display: none !important;
-  }
-  body.home.ast-theme-transparent-header.tsar-updates-mobile-fixes #masthead {
-    position: relative !important;
-    background-color: #162232 !important;
-  }
-  body.home.ast-theme-transparent-header.tsar-updates-mobile-fixes #ast-mobile-header .ast-main-header-wrap {
-    background-color: #162232 !important;
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
-  }
-
-  /* 2. Restore the collapsed About Us photo on narrow Android viewports (<= 480px) */
-  body.tsar-updates-mobile-fixes #about .wp-block-spectra-container,
-  body.tsar-updates-mobile-fixes #about figure.wp-block-image,
-  body.tsar-updates-mobile-fixes #about figure.wp-block-image img {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* 3. Unhide the 3 mobile-hidden Gallery photos and stack cleanly as full-width cards on Android */
-  body.tsar-updates-mobile-fixes #gallery .wp-block-spectra-container.is-horizontal {
-    flex-direction: column !important;
-    flex-wrap: wrap !important;
-    align-items: stretch !important;
-    gap: 16px !important;
-  }
-  body.tsar-updates-mobile-fixes #gallery figure.wp-block-image,
-  body.tsar-updates-mobile-fixes #gallery figure.spectra-hide-mobile,
-  body.tsar-updates-mobile-fixes #gallery figure.spectra-hide-tablet {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-  }
-  body.tsar-updates-mobile-fixes #gallery figure.wp-block-image img {
-    width: 100% !important;
-    height: 240px !important;
-    object-fit: cover !important;
-  }
-}
-
-@media print {
-  .tsar-updates-contact {
-    break-inside: avoid;
-  }
+	display: none !important;
 }
 
 /* ==========================================================================
-   K-HOTEL DOUALA INSPIRED LUXURY DESIGN & SLIDERS (body.tsar-khotel-design)
+   1:1 K-HOTEL DOUALA LUXURY DESIGN & STRUCTURE (body.tsar-khotel-design)
    ========================================================================== */
 body.tsar-khotel-design {
-  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  font-weight: 300;
-  letter-spacing: 0.03em;
-  color: #111;
-  background-color: #fff;
+	font-family: "Lato", "Helvetica Neue", Arial, sans-serif !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.04em;
+	color: #111111;
+	background-color: #ffffff !important;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
 }
 
-/* 1. Top utility bar & sleek dark K-Hotel header */
-.tsar-kh-topbar {
-  background: #0b1117;
-  color: #cbd5e1;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 8px 20px;
-  border-bottom: 1px solid rgba(230, 172, 152, 0.2);
-}
-.tsar-kh-topbar__inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.tsar-kh-topbar a {
-  color: #e6ac98;
-  text-decoration: none;
-  font-weight: 600;
+/* Hide intrusive duplicate cookie modals on mobile/desktop so they don\'t block the layout */
+body.tsar-khotel-design .cookieadmin_law_container,
+body.tsar-khotel-design .cookieadmin_cookie_modal,
+body.tsar-khotel-design #cookieadmin_consent_box,
+body.tsar-khotel-design .surecookie-banner,
+body.tsar-khotel-design #surecookie-consent-banner {
+	display: none !important;
 }
 
-body.tsar-khotel-design #masthead {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 9990 !important;
-  background-color: #040707 !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.28);
-}
-body.tsar-khotel-design #masthead .ast-main-header-wrap,
-body.tsar-khotel-design #masthead .ast-primary-header-bar,
-body.tsar-khotel-design #masthead .ast-below-header-bar,
-body.tsar-khotel-design #ast-mobile-header .ast-main-header-wrap {
-  background-color: #040707 !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  transition: padding 0.3s ease !important;
-}
-body.tsar-khotel-design.tsar-kh-scrolled #masthead .custom-logo {
-  max-width: 135px !important;
-  transition: max-width 0.3s ease;
-}
-body.tsar-khotel-design #masthead .menu-link {
-  color: #ffffff !important;
-  text-transform: uppercase !important;
-  font-size: 13px !important;
-  letter-spacing: 0.14em !important;
-  font-weight: 400 !important;
-}
-body.tsar-khotel-design #masthead .menu-link:hover {
-  color: #e6ac98 !important;
+/* Hide Astra\'s bulky 2-row header & broken 1200px footer when K-Hotel design is active */
+body.tsar-khotel-design #masthead,
+body.tsar-khotel-design #colophon,
+body.tsar-khotel-design .entry-header {
+	display: none !important;
 }
 
-/* Header BOOK button (K-Hotel .booknow_btn) */
-.tsar-kh-header-book {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #e6ac98;
-  color: #040707 !important;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  padding: 11px 20px;
-  text-decoration: none !important;
-  transition: all 0.25s ease;
-  margin-left: 14px;
-}
-.tsar-kh-header-book:hover {
-  background-color: #d4957f;
-  color: #ffffff !important;
+/* Full-bleed container overrides on homepage */
+body.home.tsar-khotel-design #content,
+body.home.tsar-khotel-design .ast-container,
+body.home.tsar-khotel-design #primary,
+body.home.tsar-khotel-design #main,
+body.home.tsar-khotel-design article.page,
+body.home.tsar-khotel-design .entry-content,
+body.home.tsar-khotel-design .entry-content > * {
+	max-width: 100% !important;
+	width: 100% !important;
+	padding: 0 !important;
+	margin: 0 !important;
 }
 
-/* Hide redundant default H1 Home title */
-body.home.tsar-khotel-design .entry-header {
-  display: none !important;
+/* 1. K-HOTEL SINGLE-ROW SLIM STICKY HEADER (#tsar-kh-header) */
+#tsar-kh-header {
+	position: sticky;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background-color: #040707;
+	z-index: 9995;
+	transition: all 0.3s ease;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.tsar-kh-header__inner {
+	max-width: 1320px;
+	margin: 0 auto;
+	height: 84px;
+	padding: 0 28px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	transition: height 0.3s ease;
+}
+body.tsar-kh-scrolled .tsar-kh-header__inner {
+	height: 68px;
+}
+.tsar-kh-logo {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	text-decoration: none !important;
+}
+.tsar-kh-logo img {
+	height: 56px !important;
+	width: auto !important;
+	display: block;
+	transition: height 0.3s ease;
+}
+body.tsar-kh-scrolled .tsar-kh-logo img {
+	height: 44px !important;
+}
+.tsar-kh-logo__text {
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 300;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+}
+.tsar-kh-logo__text strong {
+	color: #e6ac98;
+	font-weight: 700;
+}
+.tsar-kh-nav-wrap {
+	display: flex;
+	align-items: center;
+	gap: 0;
+}
+.tsar-kh-nav {
+	display: flex;
+	align-items: center;
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.tsar-kh-nav li {
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.tsar-kh-nav a {
+	display: inline-block;
+	color: #ffffff !important;
+	font-size: 12.5px;
+	font-weight: 400;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	padding: 6px 18px;
+	border-right: 1px solid rgba(255, 255, 255, 0.22);
+	transition: color 0.25s ease;
+}
+.tsar-kh-nav li:last-child a {
+	border-right: none;
+}
+.tsar-kh-nav a:hover {
+	color: #e6ac98 !important;
+}
+.tsar-kh-book-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #e6ac98;
+	color: #ffffff !important;
+	font-size: 12.5px;
+	font-weight: 400;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	height: 44px;
+	padding: 0 22px;
+	margin-left: 14px;
+	transition: background-color 0.25s ease;
+}
+.tsar-kh-book-btn:hover {
+	background-color: #d39680;
+	color: #ffffff !important;
+}
+.tsar-kh-burger {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 6px;
+	width: 48px !important;
+	height: 44px !important;
+	background: #1c1f1f !important;
+	border: none !important;
+	padding: 0 !important;
+	margin-left: 10px;
+	cursor: pointer;
+	border-radius: 0 !important;
+}
+.tsar-kh-burger span {
+	display: block;
+	width: 26px;
+	height: 2px;
+	background: #e6ac98;
+	transition: all 0.25s ease;
 }
 
-/* 2. K-Hotel Editorial Intro Block (.fp-slider-room-text) */
+/* K-Hotel Slide-Out Full Drawer Menu (.mega-menu) */
+#tsar-kh-drawer {
+	position: fixed;
+	top: 0;
+	right: -420px;
+	width: 360px;
+	max-width: 88vw;
+	height: 100vh;
+	background: #040707;
+	color: #ffffff;
+	z-index: 9999;
+	padding: 36px 32px;
+	box-sizing: border-box;
+	transition: right 0.35s ease;
+	overflow-y: auto;
+	box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+}
+#tsar-kh-drawer.is-open {
+	right: 0;
+}
+.tsar-kh-drawer__close {
+	background: transparent !important;
+	border: 1px solid rgba(230, 172, 152, 0.4) !important;
+	color: #e6ac98 !important;
+	width: 40px !important;
+	height: 40px !important;
+	padding: 0 !important;
+	font-size: 22px;
+	cursor: pointer;
+	float: right;
+}
+.tsar-kh-drawer__section {
+	margin-top: 28px;
+	clear: both;
+}
+.tsar-kh-drawer__heading {
+	display: block;
+	color: #e6ac98 !important;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	margin-bottom: 10px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.tsar-kh-drawer__list {
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.tsar-kh-drawer__list li {
+	margin: 7px 0 !important;
+}
+.tsar-kh-drawer__list a {
+	color: rgba(255, 255, 255, 0.82) !important;
+	font-size: 13.5px;
+	text-decoration: none !important;
+	letter-spacing: 0.06em;
+}
+.tsar-kh-drawer__list a:hover {
+	color: #e6ac98 !important;
+}
+
+/* 2. FULL-BLEED HERO BANNER SLIDESHOW (.tsar-kh-hero) */
+.tsar-kh-hero {
+	position: relative;
+	width: 100%;
+	height: 76vh;
+	min-height: 480px;
+	max-height: 720px;
+	overflow: hidden;
+	background: #040707;
+}
+.tsar-kh-hero__slide {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
+.tsar-kh-hero__slide.is-active {
+	opacity: 1;
+	z-index: 2;
+}
+.tsar-kh-hero__slide img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	object-position: center !important;
+	display: block;
+}
+.tsar-kh-hero__dots {
+	position: absolute;
+	bottom: 22px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+	display: flex;
+	gap: 10px;
+}
+.tsar-kh-hero__dot {
+	width: 10px !important;
+	height: 10px !important;
+	padding: 0 !important;
+	border-radius: 50% !important;
+	border: 1px solid #ffffff !important;
+	background: rgba(255, 255, 255, 0.35) !important;
+	cursor: pointer;
+}
+.tsar-kh-hero__dot.is-active {
+	background: #e6ac98 !important;
+	border-color: #e6ac98 !important;
+}
+
+/* 3. SECTION 1: K-HOTEL EDITORIAL INTRO (.fp-slider-room-text) */
+body.home.tsar-khotel-design .entry-content > .tsar-kh-intro {
+	max-width: 980px !important;
+}
+body.home.tsar-khotel-design .entry-content > .tsar-kh-slider-section {
+	max-width: 1420px !important;
+}
 .tsar-kh-intro {
-  text-align: center;
-  padding: 56px 24px 44px;
-  max-width: 980px;
-  margin: 0 auto;
+	text-align: center;
+	padding: 68px 24px 54px;
+	max-width: 980px;
+	margin: 0 auto;
+	background: #ffffff;
 }
 .tsar-kh-intro__subtitle {
-  color: #777;
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  font-size: 14px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
+	color: #777777;
+	font-weight: 300;
+	letter-spacing: 0.18em;
+	font-size: 13px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
 }
 .tsar-kh-intro__title {
-  font-size: clamp(30px, 4.5vw, 52px) !important;
-  font-weight: 300 !important;
-  letter-spacing: 0.06em !important;
-  color: #111 !important;
-  text-transform: uppercase;
-  margin: 6px 0 18px !important;
-  line-height: 1.2 !important;
+	font-family: "Lato", sans-serif !important;
+	font-size: clamp(28px, 4.2vw, 50px) !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.08em !important;
+	color: #111111 !important;
+	text-transform: uppercase;
+	margin: 0 0 22px !important;
+	line-height: 1.2 !important;
 }
 .tsar-kh-intro__hr {
-  width: 140px;
-  height: 1px;
-  border: 0;
-  background: #e6ac98;
-  margin: 0 auto 24px;
+	width: 160px;
+	height: 1px;
+	border: 0;
+	background: #e5e5e5;
+	margin: 0 auto 28px;
 }
-.tsar-kh-intro__lead {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.85;
-  color: #333;
-  letter-spacing: 0.03em;
-  margin: 0 auto 26px;
+.tsar-kh-intro__p {
+	font-size: 15.5px;
+	font-weight: 300;
+	line-height: 1.85;
+	color: #333333;
+	letter-spacing: 0.03em;
+	margin: 0 auto 22px;
+	max-width: 880px;
 }
-.tsar-kh-intro__actions {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.tsar-kh-btn {
-  display: inline-block;
-  background-color: #e6ac98;
-  color: #111 !important;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 13px 28px;
-  text-decoration: none !important;
-  transition: all 0.25s ease;
-  border: 1px solid #e6ac98;
-}
-.tsar-kh-btn:hover {
-  background-color: #040707;
-  color: #fff !important;
-  border-color: #040707;
-}
-.tsar-kh-btn--outline {
-  background-color: transparent;
-  color: #111 !important;
-  border: 1px solid #111;
-}
-.tsar-kh-btn--outline:hover {
-  background-color: #111;
-  color: #fff !important;
+.tsar-kh-intro__welcome {
+	font-size: 15.5px;
+	font-weight: 400;
+	color: #222222;
+	margin: 12px 0 0;
 }
 
-/* 3. K-Hotel 3-Card Interactive Experience Carousel (.fp-feature-room-section) */
-.tsar-kh-carousel-sec {
-  position: relative;
-  width: 100%;
-  max-width: 1440px;
-  margin: 10px auto 56px;
-  padding: 0 16px;
-  box-sizing: border-box;
+/* 4. SECTION 2: K-HOTEL 3-CARD CAROUSEL WITH OVERLAPPING DARK CAPTION BOX */
+.tsar-kh-slider-section {
+	position: relative;
+	width: 100%;
+	max-width: 1420px;
+	margin: 0 auto 70px;
+	padding: 0 12px;
+	box-sizing: border-box;
+	background: #ffffff;
 }
-.tsar-kh-carousel-viewport {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
+.tsar-kh-slider-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 24px;
+	align-items: start;
+	position: relative;
 }
-.tsar-kh-carousel-track {
-  display: flex;
-  transition: transform 0.55s cubic-bezier(0.25, 0.8, 0.25, 1);
-  will-change: transform;
+.tsar-kh-slider-slot {
+	position: relative;
 }
-.tsar-kh-slide {
-  flex: 0 0 33.3333%;
-  max-width: 33.3333%;
-  padding: 0 10px;
-  box-sizing: border-box;
+.tsar-kh-slider-img-wrap {
+	width: 100%;
+	height: 360px;
+	overflow: hidden;
+	background: #111;
+	position: relative;
 }
-.tsar-kh-card {
-  position: relative;
-  overflow: hidden;
-  background: #040707;
-  height: 430px;
-  display: block;
-  text-decoration: none !important;
+.tsar-kh-slider-img-wrap img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	display: block;
+	transition: transform 0.6s ease;
 }
-.tsar-kh-card img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  transition: transform 0.65s ease, opacity 0.4s ease;
-  opacity: 0.88;
+.tsar-kh-slider-slot:hover .tsar-kh-slider-img-wrap img {
+	transform: scale(1.04);
 }
-.tsar-kh-card:hover img {
-  transform: scale(1.06);
-  opacity: 0.72;
+/* Overlapping dark box on the center card (exact match to K-Hotel .archive-show-content-bottom) */
+.tsar-kh-center-box {
+	background: #222222;
+	color: #ffffff;
+	width: 88%;
+	margin: -88px auto 0;
+	padding: 34px 28px 36px;
+	position: relative;
+	z-index: 5;
+	box-sizing: border-box;
+	min-height: 165px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-decoration: none !important;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
-.tsar-kh-card__overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 28px 24px 24px;
-  background: linear-gradient(to top, rgba(4, 7, 7, 0.92) 0%, rgba(4, 7, 7, 0.55) 65%, rgba(4, 7, 7, 0) 100%);
-  color: #fff;
+.tsar-kh-center-box h3 {
+	font-family: "Lato", sans-serif !important;
+	font-size: 19px !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.08em !important;
+	text-transform: uppercase;
+	color: #ffffff !important;
+	margin: 0 0 10px !important;
 }
-.tsar-kh-card__tag {
-  display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #e6ac98;
-  margin-bottom: 6px;
-  font-weight: 700;
+.tsar-kh-center-box p {
+	font-size: 13.5px;
+	font-weight: 300;
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.88);
+	margin: 0;
 }
-.tsar-kh-card__title {
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #fff;
-  margin: 0 0 8px;
+/* Square K-Hotel < and > buttons on the edges of the center card */
+.tsar-kh-sq-arrow {
+	position: absolute !important;
+	top: 154px !important;
+	width: 54px !important;
+	height: 54px !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: none !important;
+	border-radius: 0 !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	font-size: 24px !important;
+	font-weight: 700 !important;
+	cursor: pointer !important;
+	z-index: 15 !important;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+	transition: opacity 0.25s ease;
 }
-.tsar-kh-card__desc {
-  font-size: 14px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.88);
-  margin: 0;
-  font-weight: 300;
+.tsar-kh-sq-arrow:hover {
+	opacity: 0.9;
 }
-.tsar-kh-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
-  background: rgba(4, 7, 7, 0.78);
-  color: #fff;
-  border: 1px solid rgba(230, 172, 152, 0.55);
-  cursor: pointer;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  transition: all 0.25s ease;
+.tsar-kh-sq-arrow--prev {
+	background-color: #ffffff !important;
+	color: #e6ac98 !important;
+	left: calc(33.333% - 70px) !important;
 }
-.tsar-kh-arrow:hover {
-  background: #e6ac98;
-  color: #040707;
-}
-.tsar-kh-arrow--prev { left: 26px; }
-.tsar-kh-arrow--next { right: 26px; }
-.tsar-kh-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 18px;
-}
-.tsar-kh-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #cbd5e1;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-.tsar-kh-dot.is-active {
-  background: #e6ac98;
-  transform: scale(1.25);
+.tsar-kh-sq-arrow--next {
+	background-color: #e6ac98 !important;
+	color: #ffffff !important;
+	right: calc(33.333% - 70px) !important;
 }
 
-/* 4. K-Hotel "Discover Yaounde" Split Section (.fp-section-3) */
+/* 5. SECTION 3: K-HOTEL ROOMS & SUITES SHOWCASE (#packages) */
+.tsar-kh-rooms-sec {
+	padding: 64px 24px;
+	background: #fafafa;
+	border-top: 1px solid #f0f0f0;
+}
+.tsar-kh-rooms-sec__inner {
+	max-width: 1240px;
+	margin: 0 auto;
+}
+.tsar-kh-sec-head {
+	text-align: center;
+	margin-bottom: 44px;
+}
+.tsar-kh-sec-head span {
+	display: block;
+	color: #777777;
+	font-size: 12.5px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	margin-bottom: 8px;
+}
+.tsar-kh-sec-head h2 {
+	font-family: "Lato", sans-serif !important;
+	font-size: clamp(26px, 3.5vw, 40px) !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.08em !important;
+	text-transform: uppercase;
+	color: #111111 !important;
+	margin: 0 !important;
+}
+.tsar-kh-rooms-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 24px;
+}
+.tsar-kh-room-card {
+	background: #ffffff;
+	border: 1px solid #eaeaea;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tsar-kh-room-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+.tsar-kh-room-card__img {
+	position: relative;
+	height: 220px;
+	overflow: hidden;
+	background: #111;
+}
+.tsar-kh-room-card__img img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	display: block;
+}
+.tsar-kh-room-card__rate {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(4, 7, 7, 0.86);
+	color: #e6ac98;
+	font-size: 12.5px;
+	font-weight: 400;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	padding: 9px 16px;
+}
+.tsar-kh-room-card__body {
+	padding: 24px 20px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.tsar-kh-room-card__body h3 {
+	font-family: "Lato", sans-serif !important;
+	font-size: 18px !important;
+	font-weight: 400 !important;
+	letter-spacing: 0.08em !important;
+	text-transform: uppercase;
+	color: #111111 !important;
+	margin: 0 0 10px !important;
+}
+.tsar-kh-room-card__body p {
+	font-size: 14px;
+	line-height: 1.65;
+	color: #555555;
+	margin: 0 0 18px;
+}
+.tsar-kh-room-card__cta {
+	display: inline-block;
+	text-align: center;
+	background: #040707;
+	color: #ffffff !important;
+	font-size: 11.5px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	padding: 12px 16px;
+	transition: background 0.25s ease;
+}
+.tsar-kh-room-card__cta:hover {
+	background: #e6ac98;
+	color: #040707 !important;
+}
+
+/* 6. SECTION 4: K-HOTEL "DISCOVER YAOUNDE" STAGGERED SECTION (.fp-section-3) */
 .tsar-kh-discover {
-  padding: 64px 20px;
-  background: #f8f9ef;
-  margin: 48px 0 0;
+	padding: 76px 24px;
+	background: #f8f9ef;
 }
 .tsar-kh-discover__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.6fr;
-  gap: 24px;
-  align-items: stretch;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1.65fr;
+	gap: 26px;
+	align-items: stretch;
 }
 .tsar-kh-discover__col {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 }
-.tsar-kh-feature-box {
-  background: #292929;
-  color: #fff;
-  padding: 38px 22px;
-  text-align: center;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.tsar-kh-fbox {
+	background: #292929;
+	color: #ffffff;
+	padding: 44px 24px;
+	text-align: center;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-.tsar-kh-feature-box--light {
-  background: #ffffff;
-  color: #111;
-  border: 1px solid #e5e7eb;
+.tsar-kh-fbox--white {
+	background: #ffffff;
+	color: #111111;
 }
-.tsar-kh-feature-box h3 {
-  font-size: 20px !important;
-  text-transform: uppercase;
-  letter-spacing: 0.08em !important;
-  font-weight: 300 !important;
-  margin: 0 0 10px !important;
-  color: inherit !important;
+.tsar-kh-fbox h3 {
+	font-family: "Lato", sans-serif !important;
+	font-size: 20px !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.08em !important;
+	text-transform: uppercase;
+	color: inherit !important;
+	margin: 0 0 12px !important;
 }
-.tsar-kh-feature-box p {
-  font-size: 14px;
-  line-height: 1.65;
-  margin: 0;
-  opacity: 0.9;
+.tsar-kh-fbox p {
+	font-size: 14px;
+	line-height: 1.65;
+	color: inherit;
+	opacity: 0.88;
+	margin: 0;
 }
 .tsar-kh-discover__img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
+	width: 100% !important;
+	height: 230px !important;
+	object-fit: cover !important;
+	display: block;
 }
-.tsar-kh-discover__text {
-  padding: 20px 16px 20px 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.tsar-kh-discover__editorial {
+	padding: 16px 12px 16px 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-.tsar-kh-discover__kicker {
-  font-size: 13px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #777;
-  margin-bottom: 6px;
+.tsar-kh-discover__editorial h2 {
+	font-family: "Lato", sans-serif !important;
+	font-size: clamp(28px, 3.6vw, 44px) !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.06em !important;
+	text-transform: uppercase;
+	color: #111111 !important;
+	margin: 0 0 22px !important;
 }
-.tsar-kh-discover__text h2 {
-  font-size: clamp(28px, 3.8vw, 42px) !important;
-  font-weight: 300 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.06em !important;
-  color: #111 !important;
-  margin: 0 0 18px !important;
+.tsar-kh-discover__editorial p {
+	font-size: 15px;
+	line-height: 1.85;
+	color: #333333;
+	margin: 0 0 16px;
 }
-.tsar-kh-discover__text p {
-  font-size: 15.5px;
-  line-height: 1.8;
-  color: #333;
-  margin: 0 0 14px;
+.tsar-kh-discover__btn {
+	display: inline-block;
+	align-self: flex-start;
+	background: #e6ac98;
+	color: #ffffff !important;
+	font-size: 12px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	padding: 14px 28px;
+	margin-top: 8px;
 }
-
-/* 5. Room Package card booking buttons & hover polish */
-body.tsar-khotel-design .tsar-kh-room-btn {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 10px 20px;
-  background: #040707;
-  color: #e6ac98 !important;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none !important;
-  transition: all 0.25s ease;
-}
-body.tsar-khotel-design .tsar-kh-room-btn:hover {
-  background: #e6ac98;
-  color: #040707 !important;
+.tsar-kh-discover__btn:hover {
+	background: #040707;
 }
 
-/* 6. Scroll-reveal animation & Floating Scroll-to-Top button */
-.tsar-kh-reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+/* 7. SECTION 5: K-HOTEL 4-COLUMN ARCHITECTURAL FOOTER (#tsar-kh-footer) */
+#tsar-kh-footer {
+	background-color: #fbfbf9;
+	background-image: radial-gradient(#e5e0d8 0.75px, transparent 0.75px);
+	background-size: 22px 22px;
+	color: #222222;
+	padding: 72px 24px 0;
+	border-top: 1px solid #eceae4;
 }
-.tsar-kh-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.tsar-kh-footer__grid {
+	max-width: 1200px;
+	margin: 0 auto 56px;
+	display: grid;
+	grid-template-columns: 1.3fr 1fr 1fr 1.3fr;
+	gap: 36px;
 }
+.tsar-kh-footer__about p {
+	font-size: 14px;
+	line-height: 1.8;
+	color: #333333;
+	margin: 0 0 20px;
+}
+.tsar-kh-footer__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	color: #040707;
+	text-transform: uppercase;
+}
+.tsar-kh-footer__links {
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.tsar-kh-footer__links li {
+	margin: 0 0 14px !important;
+}
+.tsar-kh-footer__links a {
+	color: #222222 !important;
+	font-size: 14px;
+	font-weight: 300;
+	text-decoration: none !important;
+	transition: color 0.2s ease;
+}
+.tsar-kh-footer__links a:hover {
+	color: #e6ac98 !important;
+}
+.tsar-kh-footer__contact-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	margin-bottom: 18px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.tsar-kh-footer__icon {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	border: 1px solid #e6ac98;
+	color: #e6ac98;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+	flex-shrink: 0;
+	margin-top: 2px;
+}
+.tsar-kh-footer__contact-item small {
+	display: block;
+	font-size: 12px;
+	color: #777777;
+	margin-bottom: 3px;
+}
+.tsar-kh-footer__contact-item a,
+.tsar-kh-footer__contact-item span {
+	color: #111111 !important;
+	font-size: 14px;
+	font-weight: 400;
+	text-decoration: none !important;
+}
+.tsar-kh-footer__map-btn {
+	display: inline-block;
+	background: #e6ac98;
+	color: #ffffff !important;
+	font-size: 11.5px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	padding: 13px 22px;
+	margin-top: 4px;
+}
+.tsar-kh-footer__bar {
+	max-width: 1200px;
+	margin: 0 auto;
+	background: #040707;
+	color: rgba(255, 255, 255, 0.8);
+	padding: 18px 28px;
+	font-size: 12.5px;
+	letter-spacing: 0.06em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+/* Floating Scroll-to-Top button */
 #tsar-scroll-top {
-  position: fixed;
-  bottom: 26px;
-  right: 22px;
-  width: 44px;
-  height: 44px;
-  background: #040707;
-  color: #e6ac98;
-  border: 1px solid #e6ac98;
-  border-radius: 50%;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 9980;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+	position: fixed !important;
+	bottom: 24px !important;
+	right: 24px !important;
+	width: 44px !important;
+	height: 44px !important;
+	padding: 0 !important;
+	line-height: 44px !important;
+	border-radius: 50% !important;
+	background: #040707 !important;
+	color: #e6ac98 !important;
+	border: 1px solid #e6ac98 !important;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px !important;
+	cursor: pointer;
+	z-index: 9980;
 }
 #tsar-scroll-top.is-shown {
-  display: flex;
+	display: flex !important;
 }
 
-/* Responsive Tablet & Android rules for K-Hotel components */
+/* ==========================================================================
+   RESPONSIVE TABLET & ANDROID RULES (Matches khotel_mobile_1.jpg & 2.jpg)
+   ========================================================================== */
 @media (max-width: 991px) {
-  .tsar-kh-slide {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-  .tsar-kh-discover__inner {
-    grid-template-columns: 1fr 1fr;
-  }
-  .tsar-kh-discover__text {
-    grid-column: 1 / -1;
-    padding: 16px 4px;
-  }
-}
-@media (max-width: 767px) {
-  .tsar-kh-topbar__inner {
-    justify-content: center;
-    text-align: center;
-    font-size: 11px;
-  }
-  .tsar-kh-slide {
-    flex: 0 0 100%;
-    max-width: 100%;
-    padding: 0 4px;
-  }
-  .tsar-kh-card {
-    height: 360px;
-  }
-  .tsar-kh-discover__inner {
-    grid-template-columns: 1fr;
-  }
-  .tsar-kh-intro {
-    padding: 36px 16px 28px;
-  }
+	.tsar-kh-nav {
+		display: none !important;
+	}
+	.tsar-kh-rooms-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.tsar-kh-discover__inner {
+		grid-template-columns: 1fr 1fr;
+	}
+	.tsar-kh-discover__editorial {
+		grid-column: 1 / -1;
+		padding: 16px 4px;
+	}
+	.tsar-kh-footer__grid {
+		grid-template-columns: 1fr 1fr;
+	}
 }
 
-/* Version 1.2.2 Polish: Slimmer scrolled header, centered round slider arrows, round scroll-top */
-body.tsar-khotel-design.tsar-kh-scrolled #masthead .ast-primary-header-bar {
-  min-height: 0 !important;
-  padding-top: 4px !important;
-  padding-bottom: 2px !important;
-}
-body.tsar-khotel-design.tsar-kh-scrolled #masthead .ast-below-header-bar {
-  min-height: 42px !important;
-  padding-top: 2px !important;
-  padding-bottom: 4px !important;
-}
-body.tsar-khotel-design.tsar-kh-scrolled #masthead .custom-logo {
-  max-width: 82px !important;
-}
-body.tsar-khotel-design .tsar-kh-arrow {
-  position: absolute !important;
-  top: 42% !important;
-  bottom: auto !important;
-  transform: translateY(-50%) !important;
-  width: 44px !important;
-  height: 44px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  line-height: 44px !important;
-  border-radius: 50% !important;
-}
-body.tsar-khotel-design .tsar-kh-arrow--prev {
-  left: 24px !important;
-  right: auto !important;
-}
-body.tsar-khotel-design .tsar-kh-arrow--next {
-  right: 24px !important;
-  left: auto !important;
-}
-body.tsar-khotel-design #tsar-scroll-top {
-  width: 44px !important;
-  height: 44px !important;
-  padding: 0 !important;
-  line-height: 44px !important;
-  border-radius: 50% !important;
+@media (max-width: 767px) {
+	.tsar-kh-header__inner {
+		height: 70px;
+		padding: 0 16px;
+	}
+	.tsar-kh-logo img {
+		height: 44px !important;
+	}
+	.tsar-kh-logo__text {
+		font-size: 16px;
+		letter-spacing: 0.16em;
+	}
+	.tsar-kh-book-btn {
+		height: 38px;
+		padding: 0 14px;
+		font-size: 11px;
+		margin-left: 6px;
+	}
+	.tsar-kh-hero {
+		height: 52vh;
+		min-height: 320px;
+	}
+	.tsar-kh-intro {
+		padding: 44px 18px 36px;
+	}
+	/* On mobile, show only the active center slide + overlapping dark box + < > arrows */
+	.tsar-kh-slider-grid {
+		grid-template-columns: 1fr;
+	}
+	.tsar-kh-slider-slot--left,
+	.tsar-kh-slider-slot--right {
+		display: none !important;
+	}
+	.tsar-kh-sq-arrow--prev {
+		left: 12px !important;
+		top: 90px !important;
+		background-color: #e6ac98 !important;
+		color: #ffffff !important;
+	}
+	.tsar-kh-sq-arrow--next {
+		right: 12px !important;
+		top: 90px !important;
+	}
+	.tsar-kh-rooms-grid {
+		grid-template-columns: 1fr;
+	}
+	.tsar-kh-discover__inner {
+		grid-template-columns: 1fr;
+	}
+	.tsar-kh-footer__grid {
+		grid-template-columns: 1fr;
+		gap: 28px;
+	}
 }
 ';
 	}
@@ -946,127 +1129,164 @@ body.tsar-khotel-design #tsar-scroll-top {
 		if ( ! $this->frontend_request() || empty( $options['khotel_design'] ) || ! is_front_page() || ! in_the_loop() || ! is_main_query() || post_password_required() ) {
 			return $content;
 		}
-		if ( false !== strpos( $content, 'tsar-kh-carousel-sec' ) ) {
-			return $content;
-		}
-		$res_url = esc_url( home_url( '/reservations/' ) );
-		$acc_url = esc_url( home_url( '/accommodations/' ) );
+		$res_url   = esc_url( home_url( '/reservations/' ) );
+		$acc_url   = esc_url( home_url( '/accommodations/' ) );
 		$suite_url = esc_url( home_url( '/accommodation/studio-suite/' ) );
-		$std_url = esc_url( home_url( '/accommodation/standard-room/' ) );
-		$u = esc_url( home_url( '/wp-content/uploads/' ) );
+		$std_url   = esc_url( home_url( '/accommodation/standard-room/' ) );
+		$u         = esc_url( home_url( '/wp-content/uploads/' ) );
 
-		$intro_and_slider = '
-		<section class="tsar-kh-intro tsar-kh-reveal" aria-label="Welcome to TSAR HOTEL">
-			<div class="tsar-kh-intro__subtitle">WORK. PLAY. STAY.</div>
-			<h2 class="tsar-kh-intro__title">Where Africa Meets.</h2>
-			<hr class="tsar-kh-intro__hr" />
-			<p class="tsar-kh-intro__lead">
-				Be inspired by TSAR HOTEL&#8217;s refined interiors, signature dining and welcoming atmosphere in Nsimeyong, Yaound&eacute;.
-				Stay inspired by warm Cameroonian hospitality across our 21 well-appointed rooms, including 3 spacious Studio Suites,
-				our all-day Restaurant and the vibrant <strong>TSAR Snack Lounge</strong>.
-			</p>
-			<div class="tsar-kh-intro__actions">
-				<a class="tsar-kh-btn" href="' . $res_url . '">Book Your Stay</a>
-				<a class="tsar-kh-btn tsar-kh-btn--outline" href="' . $acc_url . '">Explore Rooms &amp; Suites</a>
+		$khotel_home = '
+		<!-- 1. FULL-BLEED K-HOTEL HERO SLIDESHOW -->
+		<section class="tsar-kh-hero" aria-label="TSAR HOTEL Hero Slideshow">
+			<div class="tsar-kh-hero__slide is-active">
+				<img src="' . $u . '2026/08/1000039276-1024x683.png" alt="TSAR HOTEL Yaounde Exterior" />
+			</div>
+			<div class="tsar-kh-hero__slide">
+				<img src="' . $u . '2026/08/file_00000000046c81f48e62fe3ec1fd9d54.png" alt="TSAR Snack Lounge Yaounde" />
+			</div>
+			<div class="tsar-kh-hero__slide">
+				<img src="' . $u . '2020/08/slide1-free-img.jpg" alt="TSAR HOTEL Luxury Rooms and Suites" />
+			</div>
+			<div class="tsar-kh-hero__dots" id="tsar-kh-hero-dots">
+				<button type="button" class="tsar-kh-hero__dot is-active" data-hero-idx="0" aria-label="Hero Slide 1"></button>
+				<button type="button" class="tsar-kh-hero__dot" data-hero-idx="1" aria-label="Hero Slide 2"></button>
+				<button type="button" class="tsar-kh-hero__dot" data-hero-idx="2" aria-label="Hero Slide 3"></button>
 			</div>
 		</section>
 
-		<section class="tsar-kh-carousel-sec tsar-kh-reveal" aria-label="TSAR HOTEL Highlights">
-			<button type="button" class="tsar-kh-arrow tsar-kh-arrow--prev" aria-label="Previous slide">&#10094;</button>
-			<div class="tsar-kh-carousel-viewport">
-				<div class="tsar-kh-carousel-track" id="tsar-kh-track">
-					<div class="tsar-kh-slide">
-						<a class="tsar-kh-card" href="' . $suite_url . '">
-							<img src="' . $u . '2026/08/1000039276-1024x683.png" alt="TSAR HOTEL Studio Suites in Yaounde" loading="lazy" />
-							<div class="tsar-kh-card__overlay">
-								<span class="tsar-kh-card__tag">From XAF 35,000 / Night</span>
-								<h3 class="tsar-kh-card__title">Studio Suites</h3>
-								<p class="tsar-kh-card__desc">Three spacious Studio Suites crafted for business travellers, couples and extended stays in Yaound&eacute;.</p>
-							</div>
-						</a>
+		<!-- 2. K-HOTEL CENTERED EDITORIAL INTRO (#about) -->
+		<section id="about" class="tsar-kh-intro" aria-label="About TSAR HOTEL">
+			<div class="tsar-kh-intro__subtitle">WORK. PLAY. STAY.</div>
+			<h1 class="tsar-kh-intro__title">BE INSPIRED. STAY INSPIRED.</h1>
+			<hr class="tsar-kh-intro__hr" />
+			<p class="tsar-kh-intro__p">
+				Be inspired by TSAR HOTEL&#8217;s luxurious interiors, signature dining and exclusive amenities. Stay inspired by warm Cameroonian hospitality and service excellence &mdash; <strong>Where Africa Meets</strong>.
+			</p>
+			<p class="tsar-kh-intro__p">
+				Located in Nsimeyong, Yaound&eacute;, the hotel is ideally situated for business travellers, diplomats, couples and leisure guests. Featuring 21 well-appointed rooms including 3 spacious Studio Suites, our all-day Restaurant and the vibrant TSAR Snack Lounge, we strive to exceed your every expectation. It&#8217;s more than a place; it&#8217;s an experience.
+			</p>
+			<p class="tsar-kh-intro__welcome">We look forward to welcoming you.</p>
+		</section>
+
+		<!-- 3. K-HOTEL 3-CARD CAROUSEL WITH OVERLAPPING DARK BOX (#amenities) -->
+		<section id="amenities" class="tsar-kh-slider-section" aria-label="TSAR HOTEL Highlights">
+			<button type="button" class="tsar-kh-sq-arrow tsar-kh-sq-arrow--prev" id="tsar-kh-prev" aria-label="Previous highlight">&#10094;</button>
+			<div class="tsar-kh-slider-grid" id="tsar-kh-3grid">
+				<div class="tsar-kh-slider-slot tsar-kh-slider-slot--left">
+					<div class="tsar-kh-slider-img-wrap">
+						<img id="tsar-kh-img-left" src="' . $u . '2026/08/file_00000000046c81f48e62fe3ec1fd9d54.png" alt="TSAR Snack Lounge" />
 					</div>
-					<div class="tsar-kh-slide">
-						<a class="tsar-kh-card" href="' . $std_url . '">
-							<img src="' . $u . '2020/08/slide1-free-img.jpg" alt="TSAR HOTEL Standard and Double Rooms" loading="lazy" />
-							<div class="tsar-kh-card__overlay">
-								<span class="tsar-kh-card__tag">From XAF 20,000 / Night</span>
-								<h3 class="tsar-kh-card__title">Premium Accommodation</h3>
-								<p class="tsar-kh-card__desc">Retreat to the comfort of our 21 stylish en-suite rooms with air conditioning, Wi-Fi and 24/7 reception.</p>
-							</div>
-						</a>
+				</div>
+				<div class="tsar-kh-slider-slot tsar-kh-slider-slot--center">
+					<div class="tsar-kh-slider-img-wrap">
+						<img id="tsar-kh-img-center" src="' . $u . '2020/08/slide1-free-img.jpg" alt="Premium Accommodation" />
 					</div>
-					<div class="tsar-kh-slide">
-						<a class="tsar-kh-card" href="#amenities">
-							<img src="' . $u . '2026/08/file_00000000046c81f48e62fe3ec1fd9d54.png" alt="TSAR Snack Lounge Yaounde" loading="lazy" />
-							<div class="tsar-kh-card__overlay">
-								<span class="tsar-kh-card__tag">Evening Ambience</span>
-								<h3 class="tsar-kh-card__title">TSAR Snack Lounge</h3>
-								<p class="tsar-kh-card__desc">Unwind with refreshing drinks, music and warm social hospitality at TSAR Snack Lounge.</p>
-							</div>
-						</a>
-					</div>
-					<div class="tsar-kh-slide">
-						<a class="tsar-kh-card" href="#amenities">
-							<img src="' . $u . '2020/08/hotel-cooking.jpg" alt="Fine Dining at TSAR HOTEL Restaurant" loading="lazy" />
-							<div class="tsar-kh-card__overlay">
-								<span class="tsar-kh-card__tag">All-Day Dining</span>
-								<h3 class="tsar-kh-card__title">Fine Dining Restaurant</h3>
-								<p class="tsar-kh-card__desc">Indulge in freshly prepared Cameroonian and international dishes from breakfast through dinner.</p>
-							</div>
-						</a>
-					</div>
-					<div class="tsar-kh-slide">
-						<a class="tsar-kh-card" href="' . $res_url . '">
-							<img src="' . $u . '2020/06/hotel-linens.jpg" alt="Direct Reservations at TSAR HOTEL" loading="lazy" />
-							<div class="tsar-kh-card__overlay">
-								<span class="tsar-kh-card__tag">24/7 Reception</span>
-								<h3 class="tsar-kh-card__title">Seamless Reservations</h3>
-								<p class="tsar-kh-card__desc">Check availability online or contact our reception team directly for personalised group and stay arrangements.</p>
-							</div>
-						</a>
+					<a class="tsar-kh-center-box" id="tsar-kh-center-link" href="' . $acc_url . '">
+						<h3 id="tsar-kh-center-title">PREMIUM ACCOMMODATION</h3>
+						<p id="tsar-kh-center-desc">Retreat to the comfort of our 21 well-appointed, stylish en-suite rooms or 3 spacious Studio Suites in Yaound&eacute;.</p>
+					</a>
+				</div>
+				<div class="tsar-kh-slider-slot tsar-kh-slider-slot--right">
+					<div class="tsar-kh-slider-img-wrap">
+						<img id="tsar-kh-img-right" src="' . $u . '2020/08/hotel-cooking.jpg" alt="Fine Dining Restaurant" />
 					</div>
 				</div>
 			</div>
-			<button type="button" class="tsar-kh-arrow tsar-kh-arrow--next" aria-label="Next slide">&#10095;</button>
-			<div class="tsar-kh-dots" id="tsar-kh-dots"></div>
-		</section>';
+			<button type="button" class="tsar-kh-sq-arrow tsar-kh-sq-arrow--next" id="tsar-kh-next" aria-label="Next highlight">&#10095;</button>
+		</section>
 
-		$discover_section = '
-		<section class="tsar-kh-discover tsar-kh-reveal" aria-label="Discover Yaounde">
+		<!-- 4. K-HOTEL ROOMS & SUITES SHOWCASE (#packages & #gallery) -->
+		<section id="packages" class="tsar-kh-rooms-sec" aria-label="Rooms and Suites">
+			<div id="gallery" class="tsar-kh-rooms-sec__inner">
+				<div class="tsar-kh-sec-head">
+					<span>ACCOMMODATION &amp; RATES</span>
+					<h2>STAY WITH US</h2>
+				</div>
+				<div class="tsar-kh-rooms-grid">
+					<div class="tsar-kh-room-card">
+						<div class="tsar-kh-room-card__img">
+							<img src="' . $u . '2020/08/slide1-free-img.jpg" alt="Studio Suite at TSAR HOTEL" loading="lazy" />
+							<div class="tsar-kh-room-card__rate">XAF 35,000 / Night</div>
+						</div>
+						<div class="tsar-kh-room-card__body">
+							<div>
+								<h3>Studio Suite</h3>
+								<p>Three spacious Studio Suites crafted for business travellers, couples and extended stays with dedicated living space.</p>
+							</div>
+							<a class="tsar-kh-room-card__cta" href="' . $suite_url . '">Book Studio Suite</a>
+						</div>
+					</div>
+					<div class="tsar-kh-room-card">
+						<div class="tsar-kh-room-card__img">
+							<img src="' . $u . '2020/06/hotel-linens.jpg" alt="Executive Suite at TSAR HOTEL" loading="lazy" />
+							<div class="tsar-kh-room-card__rate">XAF 30,000 / Night</div>
+						</div>
+						<div class="tsar-kh-room-card__body">
+							<div>
+								<h3>Executive Suite</h3>
+								<p>Enjoy modern elegance, air-conditioned comfort, high-speed Wi-Fi and 24/7 room service in our Executive Suite.</p>
+							</div>
+							<a class="tsar-kh-room-card__cta" href="' . $res_url . '">Book Executive Suite</a>
+						</div>
+					</div>
+					<div class="tsar-kh-room-card">
+						<div class="tsar-kh-room-card__img">
+							<img src="' . $u . '2025/10/double-room-free-img-300x300-1.jpg" alt="Double Room at TSAR HOTEL" loading="lazy" />
+							<div class="tsar-kh-room-card__rate">XAF 25,000 / Night</div>
+						</div>
+						<div class="tsar-kh-room-card__body">
+							<div>
+								<h3>Double Room</h3>
+								<p>A refined, welcoming room with a comfortable double bed, en-suite bathroom and work desk for one or two guests.</p>
+							</div>
+							<a class="tsar-kh-room-card__cta" href="' . $std_url . '">Book Double Room</a>
+						</div>
+					</div>
+					<div class="tsar-kh-room-card">
+						<div class="tsar-kh-room-card__img">
+							<img src="' . $u . '2025/10/hotel-single-room-300x300-1.jpg" alt="Single Room at TSAR HOTEL" loading="lazy" />
+							<div class="tsar-kh-room-card__rate">XAF 20,000 / Night</div>
+						</div>
+						<div class="tsar-kh-room-card__body">
+							<div>
+								<h3>Single Room</h3>
+								<p>Cozy, quiet and thoughtfully equipped for solo travellers seeking quality accommodation in Yaound&eacute;.</p>
+							</div>
+							<a class="tsar-kh-room-card__cta" href="' . $res_url . '">Book Single Room</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 5. K-HOTEL DISCOVER YAOUNDE STAGGERED SECTION -->
+		<section class="tsar-kh-discover" aria-label="Discover Yaounde">
 			<div class="tsar-kh-discover__inner">
 				<div class="tsar-kh-discover__col">
-					<div class="tsar-kh-feature-box">
-						<h3>Heart of Nsimeyong</h3>
-						<p>Ideally located in Nsimeyong, Yaound&eacute;, offering peaceful comfort with convenient access to the city&#8217;s main districts.</p>
+					<div class="tsar-kh-fbox">
+						<h3>HEART OF NSIMEYONG</h3>
+						<p>Ideally located in Nsimeyong, Yaound&eacute;, offering peaceful comfort with convenient access to corporate offices, embassies and city life.</p>
 					</div>
-					<img class="tsar-kh-discover__img" src="' . $u . '2026/08/1000039276-1024x683.png" alt="TSAR HOTEL Nsimeyong Yaounde" loading="lazy" />
+					<img class="tsar-kh-discover__img" src="' . $u . '2026/08/1000039276-1024x683.png" alt="TSAR HOTEL Building in Yaounde" loading="lazy" />
 				</div>
 				<div class="tsar-kh-discover__col">
-					<img class="tsar-kh-discover__img" src="' . $u . '2026/08/file_00000000046c81f48e62fe3ec1fd9d54.png" alt="TSAR Snack Lounge and Dining" loading="lazy" />
-					<div class="tsar-kh-feature-box tsar-kh-feature-box--light">
-						<h3>Where Africa Meets</h3>
-						<p>21 rooms including 3 Studio Suites, an on-site Restaurant and TSAR Snack Lounge tailored to both visitors and Yaound&eacute; residents.</p>
+					<img class="tsar-kh-discover__img" src="' . $u . '2026/08/file_00000000046c81f48e62fe3ec1fd9d54.png" alt="TSAR Snack Lounge Yaounde" loading="lazy" />
+					<div class="tsar-kh-fbox tsar-kh-fbox--white">
+						<h3>WHERE AFRICA MEETS</h3>
+						<p>21 rooms including 3 Studio Suites, our all-day Restaurant and the vibrant TSAR Snack Lounge.</p>
 					</div>
 				</div>
-				<div class="tsar-kh-discover__text">
-					<div class="tsar-kh-discover__kicker">THE CAPITAL OF SEVEN HILLS</div>
-					<h2>Discover Yaound&eacute;</h2>
-					<p>As Cameroon&#8217;s political and diplomatic capital, Yaound&eacute; blends hillside views, vibrant cultural landmarks, museums and bustling neighbourhoods.</p>
-					<p>Whether you are visiting for business meetings, family celebrations, or a relaxing city retreat, TSAR HOTEL places warm Cameroonian hospitality, dining and restful comfort at the centre of your stay.</p>
-					<div><a class="tsar-kh-btn" href="' . $res_url . '">Check Availability &rarr;</a></div>
+				<div class="tsar-kh-discover__editorial">
+					<h2>DISCOVER YAOUND&Eacute;</h2>
+					<p>Known as the Capital of Seven Hills, Yaound&eacute; is Cameroon&#8217;s political and diplomatic heart, blending lush hillside vistas, cultural monuments and vibrant nightlife.</p>
+					<p>From business meetings and diplomatic visits to weekend dining at TSAR Snack Lounge, TSAR HOTEL places authentic Cameroonian warmth and modern luxury at the centre of your stay.</p>
+					<p>Our 24/7 reception team is always ready to assist with room reservations, airport or city car rental, and dining arrangements.</p>
+					<a class="tsar-kh-discover__btn" href="' . $res_url . '">Book Your Stay</a>
 				</div>
 			</div>
 		</section>';
 
-		// Insert intro + 3-card slider right after the opening hero <figure>, or at top of content
-		$pos = strpos( $content, '</figure>' );
-		if ( false !== $pos ) {
-			$insert_at = $pos + strlen( '</figure>' );
-			$content = substr( $content, 0, $insert_at ) . $intro_and_slider . substr( $content, $insert_at );
-		} else {
-			$content = $intro_and_slider . $content;
-		}
-		return $content . $discover_section;
+		return $khotel_home;
 	}
 
 	public function render_khotel_footer_js() {
@@ -1074,31 +1294,247 @@ body.tsar-khotel-design #tsar-scroll-top {
 		if ( ! $this->frontend_request() || empty( $options['khotel_design'] ) ) {
 			return;
 		}
-		$res_url = esc_url( home_url( '/reservations/' ) );
+		$home_url  = esc_url( home_url( '/' ) );
+		$res_url   = esc_url( home_url( '/reservations/' ) );
+		$acc_url   = esc_url( home_url( '/accommodations/' ) );
+		$suite_url = esc_url( home_url( '/accommodation/studio-suite/' ) );
+		$std_url   = esc_url( home_url( '/accommodation/standard-room/' ) );
+		$u         = esc_url( home_url( '/wp-content/uploads/' ) );
 		?>
 		<button type="button" id="tsar-scroll-top" aria-label="Scroll to top">&#8593;</button>
 		<script>
 		(function(){
-			var resUrl = <?php echo wp_json_encode( $res_url ); ?>;
-			/* 1. Inject K-Hotel Top Utility Bar & Header BOOK button */
-			var masthead = document.getElementById('masthead');
-			if (masthead && !document.querySelector('.tsar-kh-topbar')) {
-				var topbar = document.createElement('div');
-				topbar.className = 'tsar-kh-topbar';
-				topbar.innerHTML = '<div class="tsar-kh-topbar__inner"><span>We’ll make you feel at home — Where Africa Meets</span><span>Nsimeyong, Yaoundé &nbsp;|&nbsp; <a href="tel:+237683628079">+237 6 83 62 80 79</a> &nbsp;|&nbsp; <a href="' + resUrl + '">Book Online</a></span></div>';
-				masthead.parentNode.insertBefore(topbar, masthead);
+			var homeUrl  = <?php echo wp_json_encode( $home_url ); ?>;
+			var resUrl   = <?php echo wp_json_encode( $res_url ); ?>;
+			var accUrl   = <?php echo wp_json_encode( $acc_url ); ?>;
+			var suiteUrl = <?php echo wp_json_encode( $suite_url ); ?>;
+			var stdUrl   = <?php echo wp_json_encode( $std_url ); ?>;
+			var upUrl    = <?php echo wp_json_encode( $u ); ?>;
 
-				var navWrap = masthead.querySelector('.ast-below-header-bar .ast-builder-grid-row, #ast-mobile-header .ast-builder-grid-row');
-				if (navWrap && !masthead.querySelector('.tsar-kh-header-book')) {
-					var bookBtn = document.createElement('a');
-					bookBtn.className = 'tsar-kh-header-book';
-					bookBtn.href = resUrl;
-					bookBtn.textContent = 'Book';
-					navWrap.appendChild(bookBtn);
+			/* 1. Inject 1:1 K-Hotel Single-Row Header + Slide-out Mega Drawer at top of body */
+			if (!document.getElementById('tsar-kh-header')) {
+				var headerHtml = '' +
+				'<header id="tsar-kh-header">' +
+					'<div class="tsar-kh-header__inner">' +
+						'<a class="tsar-kh-logo" href="' + homeUrl + '">' +
+							'<img src="' + upUrl + '2026/08/1000035937-200x133.png" alt="TSAR HOTEL Logo" />' +
+							'<span class="tsar-kh-logo__text"><strong>TSAR</strong> HOTEL</span>' +
+						'</a>' +
+						'<div class="tsar-kh-nav-wrap">' +
+							'<ul class="tsar-kh-nav">' +
+								'<li><a href="' + homeUrl + '#packages">Stay</a></li>' +
+								'<li><a href="' + homeUrl + '#amenities">Dine</a></li>' +
+								'<li><a href="' + homeUrl + '#amenities">Lounge</a></li>' +
+								'<li><a href="' + homeUrl + '#about">About</a></li>' +
+								'<li><a href="#tsar-kh-footer">Contact</a></li>' +
+							'</ul>' +
+							'<a class="tsar-kh-book-btn" href="' + resUrl + '">Book</a>' +
+							'<button type="button" class="tsar-kh-burger" id="tsar-kh-burger-btn" aria-label="Open Menu">' +
+								'<span></span><span></span><span></span>' +
+							'</button>' +
+						'</div>' +
+					'</div>' +
+				'</header>' +
+				'<aside id="tsar-kh-drawer" aria-label="Full Menu">' +
+					'<button type="button" class="tsar-kh-drawer__close" id="tsar-kh-drawer-close" aria-label="Close Menu">&times;</button>' +
+					'<div class="tsar-kh-drawer__section">' +
+						'<a class="tsar-kh-drawer__heading" href="' + resUrl + '">Book Stay</a>' +
+					'</div>' +
+					'<div class="tsar-kh-drawer__section">' +
+						'<a class="tsar-kh-drawer__heading" href="' + accUrl + '">Stay (21 Rooms &amp; Suites)</a>' +
+						'<ul class="tsar-kh-drawer__list">' +
+							'<li><a href="' + suiteUrl + '">Studio Suites (XAF 35,000)</a></li>' +
+							'<li><a href="' + resUrl + '">Executive Suite (XAF 30,000)</a></li>' +
+							'<li><a href="' + stdUrl + '">Double Room (XAF 25,000)</a></li>' +
+							'<li><a href="' + resUrl + '">Single Room (XAF 20,000)</a></li>' +
+						'</ul>' +
+					'</div>' +
+					'<div class="tsar-kh-drawer__section">' +
+						'<a class="tsar-kh-drawer__heading" href="' + homeUrl + '#amenities">Dine &amp; Lounge</a>' +
+						'<ul class="tsar-kh-drawer__list">' +
+							'<li><a href="' + homeUrl + '#amenities">TSAR Restaurant</a></li>' +
+							'<li><a href="' + homeUrl + '#amenities">TSAR Snack Lounge</a></li>' +
+						'</ul>' +
+					'</div>' +
+					'<div class="tsar-kh-drawer__section">' +
+						'<a class="tsar-kh-drawer__heading" href="#tsar-kh-footer">Contact Us</a>' +
+						'<ul class="tsar-kh-drawer__list">' +
+							'<li><a href="tel:+237683628079">+237 6 83 62 80 79</a></li>' +
+							'<li><a href="mailto:info@tsarhotel.com">info@tsarhotel.com</a></li>' +
+						'</ul>' +
+					'</div>' +
+				'</aside>';
+				document.body.insertAdjacentHTML('afterbegin', headerHtml);
+
+				var burger = document.getElementById('tsar-kh-burger-btn');
+				var drawer = document.getElementById('tsar-kh-drawer');
+				var closeB = document.getElementById('tsar-kh-drawer-close');
+				if (burger && drawer) {
+					burger.addEventListener('click', function(){ drawer.classList.add('is-open'); });
+				}
+				if (closeB && drawer) {
+					closeB.addEventListener('click', function(){ drawer.classList.remove('is-open'); });
+				}
+				if (drawer) {
+					var dLinks = drawer.querySelectorAll('a');
+					for (var d = 0; d < dLinks.length; d++) {
+						dLinks[d].addEventListener('click', function(){ drawer.classList.remove('is-open'); });
+					}
 				}
 			}
 
-			/* 2. Sticky Header Shrink + Scroll-to-Top visibility on scroll */
+			/* 2. Inject 1:1 K-Hotel 4-Column Architectural Footer */
+			if (!document.getElementById('tsar-kh-footer')) {
+				var footerHtml = '' +
+				'<footer id="tsar-kh-footer">' +
+					'<div class="tsar-kh-footer__grid">' +
+						'<div class="tsar-kh-footer__about">' +
+							'<p>Be inspired by TSAR HOTEL’s luxurious interiors, signature dining and exclusive amenities. Stay inspired by warm Cameroonian hospitality and service excellence.</p>' +
+							'<div class="tsar-kh-footer__badge">★ TSAR HOTEL — WHERE AFRICA MEETS</div>' +
+						'</div>' +
+						'<div>' +
+							'<ul class="tsar-kh-footer__links">' +
+								'<li><a href="' + accUrl + '">+ Accommodation</a></li>' +
+								'<li><a href="' + suiteUrl + '">+ Studio Suites</a></li>' +
+								'<li><a href="' + stdUrl + '">+ Standard &amp; Double Rooms</a></li>' +
+								'<li><a href="' + homeUrl + '#amenities">+ TSAR Restaurant</a></li>' +
+								'<li><a href="' + homeUrl + '#amenities">+ TSAR Snack Lounge</a></li>' +
+							'</ul>' +
+						'</div>' +
+						'<div>' +
+							'<ul class="tsar-kh-footer__links">' +
+								'<li><a href="' + homeUrl + '#about">+ About TSAR Hotel</a></li>' +
+								'<li><a href="' + homeUrl + '#packages">+ Rooms &amp; Rates</a></li>' +
+								'<li><a href="' + resUrl + '">+ Online Reservations</a></li>' +
+								'<li><a href="#tsar-kh-footer">+ Contact Us</a></li>' +
+							'</ul>' +
+						'</div>' +
+						'<div>' +
+							'<div class="tsar-kh-footer__contact-item">' +
+								'<div class="tsar-kh-footer__icon">☎</div>' +
+								'<div><small>Phone number</small><a href="tel:+237683628079">+237 6 83 62 80 79</a></div>' +
+							'</div>' +
+							'<div class="tsar-kh-footer__contact-item">' +
+								'<div class="tsar-kh-footer__icon">✉</div>' +
+								'<div><small>Email</small><a href="mailto:info@tsarhotel.com">info@tsarhotel.com</a></div>' +
+							'</div>' +
+							'<div class="tsar-kh-footer__contact-item" style="border-bottom:none;">' +
+								'<div class="tsar-kh-footer__icon">⌂</div>' +
+								'<div><small>TSAR Hotel Address</small><span>Nsimeyong, Yaoundé, Cameroon</span></div>' +
+							'</div>' +
+							'<a class="tsar-kh-footer__map-btn" href="https://www.google.com/maps/search/?api=1&query=TSAR+HOTEL+Nsimeyong+Yaounde" target="_blank" rel="noopener">View Google Map</a>' +
+						'</div>' +
+					'</div>' +
+					'<div class="tsar-kh-footer__bar">' +
+						'<span>Luxury Accommodation | © TSAR HOTEL Yaoundé - 2026</span>' +
+						'<span>Where Africa Meets</span>' +
+					'</div>' +
+				'</footer>';
+				document.body.insertAdjacentHTML('beforeend', footerHtml);
+			}
+
+			/* 3. Hero Banner Autoplay Crossfade Slideshow */
+			var heroSlides = document.querySelectorAll('.tsar-kh-hero__slide');
+			var heroDots   = document.querySelectorAll('.tsar-kh-hero__dot');
+			if (heroSlides.length > 1) {
+				var hIdx = 0;
+				function showHero(n) {
+					hIdx = (n + heroSlides.length) % heroSlides.length;
+					for (var i = 0; i < heroSlides.length; i++) {
+						heroSlides[i].classList.toggle('is-active', i === hIdx);
+					}
+					for (var j = 0; j < heroDots.length; j++) {
+						heroDots[j].classList.toggle('is-active', j === hIdx);
+					}
+				}
+				for (var d = 0; d < heroDots.length; d++) {
+					(function(k){
+						heroDots[k].addEventListener('click', function(){ showHero(k); });
+					})(d);
+				}
+				setInterval(function(){ showHero(hIdx + 1); }, 5000);
+			}
+
+			/* 4. K-Hotel 3-Card Interactive Slider with Overlapping Dark Box */
+			var items = [
+				{
+					img: upUrl + '2026/08/file_00000000046c81f48e62fe3ec1fd9d54.png',
+					title: 'TSAR SNACK LOUNGE',
+					desc: 'Unwind with signature drinks, platters and warm evening ambience at TSAR Snack Lounge.',
+					url: homeUrl + '#amenities'
+				},
+				{
+					img: upUrl + '2020/08/slide1-free-img.jpg',
+					title: 'PREMIUM ACCOMMODATION',
+					desc: 'Retreat to the comfort of our 21 well-appointed, stylish en-suite rooms or 3 spacious Studio Suites in Yaoundé.',
+					url: accUrl
+				},
+				{
+					img: upUrl + '2020/08/hotel-cooking.jpg',
+					title: 'FINE DINING RESTAURANT',
+					desc: 'Indulge in freshly prepared Cameroonian and international cuisine from breakfast through dinner.',
+					url: homeUrl + '#amenities'
+				},
+				{
+					img: upUrl + '2026/08/1000039276-1024x683.png',
+					title: 'STUDIO SUITES',
+					desc: 'Three spacious Studio Suites crafted for business travellers, couples and extended stays — XAF 35,000 / Night.',
+					url: suiteUrl
+				},
+				{
+					img: upUrl + '2020/06/hotel-linens.jpg',
+					title: 'SEAMLESS RESERVATIONS',
+					desc: '24/7 reception, room service, high-speed Wi-Fi and direct online booking for your stay in Yaoundé.',
+					url: resUrl
+				}
+			];
+			var imgLeft   = document.getElementById('tsar-kh-img-left');
+			var imgCenter = document.getElementById('tsar-kh-img-center');
+			var imgRight  = document.getElementById('tsar-kh-img-right');
+			var cTitle    = document.getElementById('tsar-kh-center-title');
+			var cDesc     = document.getElementById('tsar-kh-center-desc');
+			var cLink     = document.getElementById('tsar-kh-center-link');
+			var prevBtn   = document.getElementById('tsar-kh-prev');
+			var nextBtn   = document.getElementById('tsar-kh-next');
+
+			if (imgCenter && cTitle && cDesc) {
+				var cIdx = 1;
+				var cTimer = null;
+				function renderCarousel(idx) {
+					cIdx = (idx + items.length) % items.length;
+					var leftIdx  = (cIdx - 1 + items.length) % items.length;
+					var rightIdx = (cIdx + 1) % items.length;
+					if (imgLeft)   { imgLeft.src   = items[leftIdx].img;  imgLeft.alt   = items[leftIdx].title; }
+					if (imgCenter) { imgCenter.src = items[cIdx].img;     imgCenter.alt = items[cIdx].title; }
+					if (imgRight)  { imgRight.src  = items[rightIdx].img; imgRight.alt  = items[rightIdx].title; }
+					cTitle.textContent = items[cIdx].title;
+					cDesc.textContent  = items[cIdx].desc;
+					if (cLink) cLink.href = items[cIdx].url;
+				}
+				function restartCarouselTimer() {
+					if (cTimer) clearInterval(cTimer);
+					cTimer = setInterval(function(){ renderCarousel(cIdx + 1); }, 4200);
+				}
+				if (prevBtn) prevBtn.addEventListener('click', function(){ renderCarousel(cIdx - 1); restartCarouselTimer(); });
+				if (nextBtn) nextBtn.addEventListener('click', function(){ renderCarousel(cIdx + 1); restartCarouselTimer(); });
+
+				var gridEl = document.getElementById('tsar-kh-3grid');
+				if (gridEl) {
+					var sx = 0;
+					gridEl.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive: true});
+					gridEl.addEventListener('touchend', function(e){
+						var dx = sx - e.changedTouches[0].clientX;
+						if (Math.abs(dx) > 40) {
+							renderCarousel(dx > 0 ? cIdx + 1 : cIdx - 1);
+							restartCarouselTimer();
+						}
+					}, {passive: true});
+				}
+				renderCarousel(1);
+				restartCarouselTimer();
+			}
+
+			/* 5. Scroll Header Shrink + Scroll-to-Top button */
 			var scrollBtn = document.getElementById('tsar-scroll-top');
 			window.addEventListener('scroll', function(){
 				if (window.scrollY > 30) {
@@ -1107,129 +1543,13 @@ body.tsar-khotel-design #tsar-scroll-top {
 					document.body.classList.remove('tsar-kh-scrolled');
 				}
 				if (scrollBtn) {
-					if (window.scrollY > 220) {
-						scrollBtn.classList.add('is-shown');
-					} else {
-						scrollBtn.classList.remove('is-shown');
-					}
+					scrollBtn.classList.toggle('is-shown', window.scrollY > 260);
 				}
 			}, {passive: true});
-
 			if (scrollBtn) {
 				scrollBtn.addEventListener('click', function(){
 					window.scrollTo({top: 0, behavior: 'smooth'});
 				});
-			}
-
-			/* 3. Interactive K-Hotel 3-Card Carousel (Autoplay + Arrows + Dots + Touch Swipe) */
-			var track = document.getElementById('tsar-kh-track');
-			var dotsWrap = document.getElementById('tsar-kh-dots');
-			if (track && dotsWrap) {
-				var slides = track.querySelectorAll('.tsar-kh-slide');
-				var current = 0;
-				var timer = null;
-
-				function perView() {
-					if (window.innerWidth <= 767) return 1;
-					if (window.innerWidth <= 991) return 2;
-					return 3;
-				}
-				function maxIndex() {
-					return Math.max(0, slides.length - perView());
-				}
-				function buildDots() {
-					dotsWrap.innerHTML = '';
-					var total = maxIndex() + 1;
-					for (var i = 0; i < total; i++) {
-						(function(idx){
-							var b = document.createElement('button');
-							b.type = 'button';
-							b.className = 'tsar-kh-dot' + (idx === current ? ' is-active' : '');
-							b.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
-							b.addEventListener('click', function(){ goTo(idx); resetTimer(); });
-							dotsWrap.appendChild(b);
-						})(i);
-					}
-				}
-				function goTo(idx) {
-					var max = maxIndex();
-					if (idx > max) idx = 0;
-					if (idx < 0) idx = max;
-					current = idx;
-					var pct = (100 / perView()) * current;
-					track.style.transform = 'translateX(-' + pct + '%)';
-					var dots = dotsWrap.querySelectorAll('.tsar-kh-dot');
-					for (var i = 0; i < dots.length; i++) {
-						dots[i].classList.toggle('is-active', i === current);
-					}
-				}
-				function resetTimer() {
-					if (timer) clearInterval(timer);
-					timer = setInterval(function(){ goTo(current + 1); }, 4200);
-				}
-				var prevBtn = document.querySelector('.tsar-kh-arrow--prev');
-				var nextBtn = document.querySelector('.tsar-kh-arrow--next');
-				if (prevBtn) prevBtn.addEventListener('click', function(){ goTo(current - 1); resetTimer(); });
-				if (nextBtn) nextBtn.addEventListener('click', function(){ goTo(current + 1); resetTimer(); });
-
-				var startX = 0;
-				track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive: true});
-				track.addEventListener('touchend', function(e){
-					var diff = startX - e.changedTouches[0].clientX;
-					if (Math.abs(diff) > 40) {
-						goTo(diff > 0 ? current + 1 : current - 1);
-						resetTimer();
-					}
-				}, {passive: true});
-
-				window.addEventListener('resize', function(){ buildDots(); goTo(current); });
-				buildDots();
-				goTo(0);
-				resetTimer();
-			}
-
-			/* 4. Add K-Hotel "BOOK ROOM ->" buttons to the 4 Homepage Room Package Cards */
-			var pkgHeadings = document.querySelectorAll('h4');
-			for (var i = 0; i < pkgHeadings.length; i++) {
-				var h4 = pkgHeadings[i];
-				var txt = (h4.textContent || '').trim().toLowerCase();
-				if (txt.indexOf('studio') !== -1 || txt.indexOf('double') !== -1 || txt.indexOf('executive') !== -1 || txt.indexOf('single') !== -1) {
-					var cardCol = h4.parentElement;
-					if (cardCol && !cardCol.querySelector('.tsar-kh-room-btn')) {
-						var btn = document.createElement('a');
-						btn.className = 'tsar-kh-room-btn';
-						btn.href = txt.indexOf('studio') !== -1 ? <?php echo wp_json_encode( esc_url( home_url( '/accommodation/studio-suite/' ) ) ); ?> : resUrl;
-						btn.textContent = 'Book Room →';
-						cardCol.appendChild(btn);
-					}
-				}
-			}
-
-			/* 5. Make plain-text footer phone & email clickable */
-			var footerTitles = document.querySelectorAll('#colophon h2.widget-title');
-			for (var j = 0; j < footerTitles.length; j++) {
-				var el = footerTitles[j];
-				var t = (el.textContent || '').trim();
-				if (t.indexOf('+237') !== -1 && !el.querySelector('a')) {
-					el.innerHTML = '<a href="tel:' + t.replace(/\s+/g, '') + '" style="color:inherit;text-decoration:none;">' + t + '</a>';
-				} else if (t.indexOf('@') !== -1 && !el.querySelector('a')) {
-					el.innerHTML = '<a href="mailto:' + t + '" style="color:inherit;text-decoration:none;">' + t + '</a>';
-				}
-			}
-
-			/* 6. Smooth scroll-reveal animations */
-			var reveals = document.querySelectorAll('.tsar-kh-reveal');
-			if ('IntersectionObserver' in window) {
-				var io = new IntersectionObserver(function(entries){
-					entries.forEach(function(entry){
-						if (entry.isIntersecting) {
-							entry.target.classList.add('is-visible');
-						}
-					});
-				}, {threshold: 0.12});
-				for (var k = 0; k < reveals.length; k++) io.observe(reveals[k]);
-			} else {
-				for (var k = 0; k < reveals.length; k++) reveals[k].classList.add('is-visible');
 			}
 		})();
 		</script>

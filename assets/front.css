@@ -1,684 +1,867 @@
-/* Scoped, local-only styles. No fonts, scripts, cookies or external assets. */
+/* Scoped, local-only styles for TSAR HOTEL Website Updates (v1.3.0 - 1:1 K-Hotel Douala Design) */
 body.tsar-updates-clean-socials #colophon a.ast-builder-social-element[href=""],
 body.tsar-updates-clean-socials #colophon a.ast-builder-social-element[href="#"],
 body.tsar-updates-clean-socials #colophon a.ast-builder-social-element:not([href]) {
-  display: none !important;
-}
-
-.tsar-updates-contact {
-  --tsar-ink: #192b37;
-  --tsar-gold: #806019;
-  --tsar-border: #decba2;
-  box-sizing: border-box;
-  display: block;
-  position: static;
-  width: 100%;
-  max-width: 100%;
-  margin: 1rem 0 1.5rem;
-  padding: clamp(1rem, 2.5vw, 1.65rem);
-  color: var(--tsar-ink);
-  background: #fffdf8;
-  border: 1px solid var(--tsar-border);
-  border-top: 3px solid #b08935;
-  border-radius: 12px;
-  font: inherit;
-  overflow-wrap: anywhere;
-}
-.tsar-updates-contact *,
-.tsar-updates-contact *::before,
-.tsar-updates-contact *::after {
-  box-sizing: border-box;
-}
-.tsar-updates-contact .tsar-updates-contact__brand {
-  margin: 0 0 .45rem;
-  color: var(--tsar-gold);
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .065em;
-  line-height: 1.5;
-}
-.tsar-updates-contact h2 {
-  margin: 0 0 .45rem;
-  color: var(--tsar-ink);
-  font-family: inherit;
-  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-  font-weight: 700;
-  line-height: 1.25;
-}
-.tsar-updates-contact .tsar-updates-contact__note {
-  margin: 0;
-  max-width: 75ch;
-  color: #445460;
-  font-size: .925rem;
-  line-height: 1.65;
-}
-.tsar-updates-contact__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  gap: .65rem;
-  margin-top: 1rem;
-}
-.tsar-updates-contact a.tsar-updates-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 46px;
-  max-width: 100%;
-  padding: .7rem 1rem;
-  border: 1px solid #192b37;
-  border-radius: 7px;
-  background: #192b37;
-  color: #fff;
-  font-family: inherit;
-  font-size: .925rem;
-  font-weight: 650;
-  line-height: 1.35;
-  text-align: center;
-  text-decoration: none;
-  white-space: normal;
-  box-shadow: none;
-}
-.tsar-updates-contact a.tsar-updates-action--whatsapp {
-  background: #126946;
-  border-color: #126946;
-}
-.tsar-updates-contact a.tsar-updates-action--email {
-  background: #fffdf8;
-  color: #192b37;
-}
-.tsar-updates-contact a.tsar-updates-action:hover {
-  filter: brightness(.92);
-  text-decoration: none;
-}
-.tsar-updates-contact a:focus-visible {
-  outline: 3px solid #936508;
-  outline-offset: 4px;
-}
-.tsar-updates-contact__profiles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem 1.1rem;
-  margin-top: 1rem;
-  padding-top: .9rem;
-  border-top: 1px solid #e7ddc8;
-}
-.tsar-updates-contact__profiles a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  color: #415260;
-  font-size: .875rem;
-  font-weight: 600;
-  line-height: 1.4;
-  text-decoration: underline;
-  text-underline-offset: .18em;
-}
-@media (max-width: 520px) {
-  .tsar-updates-contact__actions {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .tsar-updates-contact a.tsar-updates-action {
-    width: 100%;
-    min-height: 48px;
-  }
-}
-
-/* Reversible Android / mobile layout fixes (toggleable in Settings -> TSAR HOTEL Updates) */
-body.tsar-updates-mobile-fixes #colophon #media_image-1 h2.widget-title,
-body.tsar-updates-mobile-fixes #colophon h2.wp-block-heading,
-body.tsar-updates-mobile-fixes .site-footer h2.wp-block-heading {
-  color: #f3e5ab !important;
-}
-
-@media (max-width: 782px) {
-  /* 1. Prevent "Home" page title from colliding with the Astra Transparent Header logo on Android */
-  body.home.tsar-updates-mobile-fixes .entry-header {
-    display: none !important;
-  }
-  body.home.ast-theme-transparent-header.tsar-updates-mobile-fixes #masthead {
-    position: relative !important;
-    background-color: #162232 !important;
-  }
-  body.home.ast-theme-transparent-header.tsar-updates-mobile-fixes #ast-mobile-header .ast-main-header-wrap {
-    background-color: #162232 !important;
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
-  }
-
-  /* 2. Restore the collapsed About Us photo on narrow Android viewports (<= 480px) */
-  body.tsar-updates-mobile-fixes #about .wp-block-spectra-container,
-  body.tsar-updates-mobile-fixes #about figure.wp-block-image,
-  body.tsar-updates-mobile-fixes #about figure.wp-block-image img {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* 3. Unhide the 3 mobile-hidden Gallery photos and stack cleanly as full-width cards on Android */
-  body.tsar-updates-mobile-fixes #gallery .wp-block-spectra-container.is-horizontal {
-    flex-direction: column !important;
-    flex-wrap: wrap !important;
-    align-items: stretch !important;
-    gap: 16px !important;
-  }
-  body.tsar-updates-mobile-fixes #gallery figure.wp-block-image,
-  body.tsar-updates-mobile-fixes #gallery figure.spectra-hide-mobile,
-  body.tsar-updates-mobile-fixes #gallery figure.spectra-hide-tablet {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-  }
-  body.tsar-updates-mobile-fixes #gallery figure.wp-block-image img {
-    width: 100% !important;
-    height: 240px !important;
-    object-fit: cover !important;
-  }
-}
-
-@media print {
-  .tsar-updates-contact {
-    break-inside: avoid;
-  }
+	display: none !important;
 }
 
 /* ==========================================================================
-   K-HOTEL DOUALA INSPIRED LUXURY DESIGN & SLIDERS (body.tsar-khotel-design)
+   1:1 K-HOTEL DOUALA LUXURY DESIGN & STRUCTURE (body.tsar-khotel-design)
    ========================================================================== */
 body.tsar-khotel-design {
-  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  font-weight: 300;
-  letter-spacing: 0.03em;
-  color: #111;
-  background-color: #fff;
+	font-family: "Lato", "Helvetica Neue", Arial, sans-serif !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.04em;
+	color: #111111;
+	background-color: #ffffff !important;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
 }
 
-/* 1. Top utility bar & sleek dark K-Hotel header */
-.tsar-kh-topbar {
-  background: #0b1117;
-  color: #cbd5e1;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 8px 20px;
-  border-bottom: 1px solid rgba(230, 172, 152, 0.2);
-}
-.tsar-kh-topbar__inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.tsar-kh-topbar a {
-  color: #e6ac98;
-  text-decoration: none;
-  font-weight: 600;
+/* Hide intrusive duplicate cookie modals on mobile/desktop so they don't block the layout */
+body.tsar-khotel-design .cookieadmin_law_container,
+body.tsar-khotel-design .cookieadmin_cookie_modal,
+body.tsar-khotel-design #cookieadmin_consent_box,
+body.tsar-khotel-design .surecookie-banner,
+body.tsar-khotel-design #surecookie-consent-banner {
+	display: none !important;
 }
 
-body.tsar-khotel-design #masthead {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 9990 !important;
-  background-color: #040707 !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.28);
-}
-body.tsar-khotel-design #masthead .ast-main-header-wrap,
-body.tsar-khotel-design #masthead .ast-primary-header-bar,
-body.tsar-khotel-design #masthead .ast-below-header-bar,
-body.tsar-khotel-design #ast-mobile-header .ast-main-header-wrap {
-  background-color: #040707 !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  transition: padding 0.3s ease !important;
-}
-body.tsar-khotel-design.tsar-kh-scrolled #masthead .custom-logo {
-  max-width: 135px !important;
-  transition: max-width 0.3s ease;
-}
-body.tsar-khotel-design #masthead .menu-link {
-  color: #ffffff !important;
-  text-transform: uppercase !important;
-  font-size: 13px !important;
-  letter-spacing: 0.14em !important;
-  font-weight: 400 !important;
-}
-body.tsar-khotel-design #masthead .menu-link:hover {
-  color: #e6ac98 !important;
+/* Hide Astra's bulky 2-row header & broken 1200px footer when K-Hotel design is active */
+body.tsar-khotel-design #masthead,
+body.tsar-khotel-design #colophon,
+body.tsar-khotel-design .entry-header {
+	display: none !important;
 }
 
-/* Header BOOK button (K-Hotel .booknow_btn) */
-.tsar-kh-header-book {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #e6ac98;
-  color: #040707 !important;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  padding: 11px 20px;
-  text-decoration: none !important;
-  transition: all 0.25s ease;
-  margin-left: 14px;
-}
-.tsar-kh-header-book:hover {
-  background-color: #d4957f;
-  color: #ffffff !important;
+/* Full-bleed container overrides on homepage */
+body.home.tsar-khotel-design #content,
+body.home.tsar-khotel-design .ast-container,
+body.home.tsar-khotel-design #primary,
+body.home.tsar-khotel-design #main,
+body.home.tsar-khotel-design article.page,
+body.home.tsar-khotel-design .entry-content,
+body.home.tsar-khotel-design .entry-content > * {
+	max-width: 100% !important;
+	width: 100% !important;
+	padding: 0 !important;
+	margin: 0 !important;
 }
 
-/* Hide redundant default H1 Home title */
-body.home.tsar-khotel-design .entry-header {
-  display: none !important;
+/* 1. K-HOTEL SINGLE-ROW SLIM STICKY HEADER (#tsar-kh-header) */
+#tsar-kh-header {
+	position: sticky;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background-color: #040707;
+	z-index: 9995;
+	transition: all 0.3s ease;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.tsar-kh-header__inner {
+	max-width: 1320px;
+	margin: 0 auto;
+	height: 84px;
+	padding: 0 28px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	transition: height 0.3s ease;
+}
+body.tsar-kh-scrolled .tsar-kh-header__inner {
+	height: 68px;
+}
+.tsar-kh-logo {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	text-decoration: none !important;
+}
+.tsar-kh-logo img {
+	height: 56px !important;
+	width: auto !important;
+	display: block;
+	transition: height 0.3s ease;
+}
+body.tsar-kh-scrolled .tsar-kh-logo img {
+	height: 44px !important;
+}
+.tsar-kh-logo__text {
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 300;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+}
+.tsar-kh-logo__text strong {
+	color: #e6ac98;
+	font-weight: 700;
+}
+.tsar-kh-nav-wrap {
+	display: flex;
+	align-items: center;
+	gap: 0;
+}
+.tsar-kh-nav {
+	display: flex;
+	align-items: center;
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.tsar-kh-nav li {
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.tsar-kh-nav a {
+	display: inline-block;
+	color: #ffffff !important;
+	font-size: 12.5px;
+	font-weight: 400;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	padding: 6px 18px;
+	border-right: 1px solid rgba(255, 255, 255, 0.22);
+	transition: color 0.25s ease;
+}
+.tsar-kh-nav li:last-child a {
+	border-right: none;
+}
+.tsar-kh-nav a:hover {
+	color: #e6ac98 !important;
+}
+.tsar-kh-book-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #e6ac98;
+	color: #ffffff !important;
+	font-size: 12.5px;
+	font-weight: 400;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	height: 44px;
+	padding: 0 22px;
+	margin-left: 14px;
+	transition: background-color 0.25s ease;
+}
+.tsar-kh-book-btn:hover {
+	background-color: #d39680;
+	color: #ffffff !important;
+}
+.tsar-kh-burger {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 6px;
+	width: 48px !important;
+	height: 44px !important;
+	background: #1c1f1f !important;
+	border: none !important;
+	padding: 0 !important;
+	margin-left: 10px;
+	cursor: pointer;
+	border-radius: 0 !important;
+}
+.tsar-kh-burger span {
+	display: block;
+	width: 26px;
+	height: 2px;
+	background: #e6ac98;
+	transition: all 0.25s ease;
 }
 
-/* 2. K-Hotel Editorial Intro Block (.fp-slider-room-text) */
+/* K-Hotel Slide-Out Full Drawer Menu (.mega-menu) */
+#tsar-kh-drawer {
+	position: fixed;
+	top: 0;
+	right: -420px;
+	width: 360px;
+	max-width: 88vw;
+	height: 100vh;
+	background: #040707;
+	color: #ffffff;
+	z-index: 9999;
+	padding: 36px 32px;
+	box-sizing: border-box;
+	transition: right 0.35s ease;
+	overflow-y: auto;
+	box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+}
+#tsar-kh-drawer.is-open {
+	right: 0;
+}
+.tsar-kh-drawer__close {
+	background: transparent !important;
+	border: 1px solid rgba(230, 172, 152, 0.4) !important;
+	color: #e6ac98 !important;
+	width: 40px !important;
+	height: 40px !important;
+	padding: 0 !important;
+	font-size: 22px;
+	cursor: pointer;
+	float: right;
+}
+.tsar-kh-drawer__section {
+	margin-top: 28px;
+	clear: both;
+}
+.tsar-kh-drawer__heading {
+	display: block;
+	color: #e6ac98 !important;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	margin-bottom: 10px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.tsar-kh-drawer__list {
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.tsar-kh-drawer__list li {
+	margin: 7px 0 !important;
+}
+.tsar-kh-drawer__list a {
+	color: rgba(255, 255, 255, 0.82) !important;
+	font-size: 13.5px;
+	text-decoration: none !important;
+	letter-spacing: 0.06em;
+}
+.tsar-kh-drawer__list a:hover {
+	color: #e6ac98 !important;
+}
+
+/* 2. FULL-BLEED HERO BANNER SLIDESHOW (.tsar-kh-hero) */
+.tsar-kh-hero {
+	position: relative;
+	width: 100%;
+	height: 76vh;
+	min-height: 480px;
+	max-height: 720px;
+	overflow: hidden;
+	background: #040707;
+}
+.tsar-kh-hero__slide {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
+.tsar-kh-hero__slide.is-active {
+	opacity: 1;
+	z-index: 2;
+}
+.tsar-kh-hero__slide img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	object-position: center !important;
+	display: block;
+}
+.tsar-kh-hero__dots {
+	position: absolute;
+	bottom: 22px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+	display: flex;
+	gap: 10px;
+}
+.tsar-kh-hero__dot {
+	width: 10px !important;
+	height: 10px !important;
+	padding: 0 !important;
+	border-radius: 50% !important;
+	border: 1px solid #ffffff !important;
+	background: rgba(255, 255, 255, 0.35) !important;
+	cursor: pointer;
+}
+.tsar-kh-hero__dot.is-active {
+	background: #e6ac98 !important;
+	border-color: #e6ac98 !important;
+}
+
+/* 3. SECTION 1: K-HOTEL EDITORIAL INTRO (.fp-slider-room-text) */
+body.home.tsar-khotel-design .entry-content > .tsar-kh-intro {
+	max-width: 980px !important;
+}
+body.home.tsar-khotel-design .entry-content > .tsar-kh-slider-section {
+	max-width: 1420px !important;
+}
 .tsar-kh-intro {
-  text-align: center;
-  padding: 56px 24px 44px;
-  max-width: 980px;
-  margin: 0 auto;
+	text-align: center;
+	padding: 68px 24px 54px;
+	max-width: 980px;
+	margin: 0 auto;
+	background: #ffffff;
 }
 .tsar-kh-intro__subtitle {
-  color: #777;
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  font-size: 14px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
+	color: #777777;
+	font-weight: 300;
+	letter-spacing: 0.18em;
+	font-size: 13px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
 }
 .tsar-kh-intro__title {
-  font-size: clamp(30px, 4.5vw, 52px) !important;
-  font-weight: 300 !important;
-  letter-spacing: 0.06em !important;
-  color: #111 !important;
-  text-transform: uppercase;
-  margin: 6px 0 18px !important;
-  line-height: 1.2 !important;
+	font-family: "Lato", sans-serif !important;
+	font-size: clamp(28px, 4.2vw, 50px) !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.08em !important;
+	color: #111111 !important;
+	text-transform: uppercase;
+	margin: 0 0 22px !important;
+	line-height: 1.2 !important;
 }
 .tsar-kh-intro__hr {
-  width: 140px;
-  height: 1px;
-  border: 0;
-  background: #e6ac98;
-  margin: 0 auto 24px;
+	width: 160px;
+	height: 1px;
+	border: 0;
+	background: #e5e5e5;
+	margin: 0 auto 28px;
 }
-.tsar-kh-intro__lead {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.85;
-  color: #333;
-  letter-spacing: 0.03em;
-  margin: 0 auto 26px;
+.tsar-kh-intro__p {
+	font-size: 15.5px;
+	font-weight: 300;
+	line-height: 1.85;
+	color: #333333;
+	letter-spacing: 0.03em;
+	margin: 0 auto 22px;
+	max-width: 880px;
 }
-.tsar-kh-intro__actions {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.tsar-kh-btn {
-  display: inline-block;
-  background-color: #e6ac98;
-  color: #111 !important;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 13px 28px;
-  text-decoration: none !important;
-  transition: all 0.25s ease;
-  border: 1px solid #e6ac98;
-}
-.tsar-kh-btn:hover {
-  background-color: #040707;
-  color: #fff !important;
-  border-color: #040707;
-}
-.tsar-kh-btn--outline {
-  background-color: transparent;
-  color: #111 !important;
-  border: 1px solid #111;
-}
-.tsar-kh-btn--outline:hover {
-  background-color: #111;
-  color: #fff !important;
+.tsar-kh-intro__welcome {
+	font-size: 15.5px;
+	font-weight: 400;
+	color: #222222;
+	margin: 12px 0 0;
 }
 
-/* 3. K-Hotel 3-Card Interactive Experience Carousel (.fp-feature-room-section) */
-.tsar-kh-carousel-sec {
-  position: relative;
-  width: 100%;
-  max-width: 1440px;
-  margin: 10px auto 56px;
-  padding: 0 16px;
-  box-sizing: border-box;
+/* 4. SECTION 2: K-HOTEL 3-CARD CAROUSEL WITH OVERLAPPING DARK CAPTION BOX */
+.tsar-kh-slider-section {
+	position: relative;
+	width: 100%;
+	max-width: 1420px;
+	margin: 0 auto 70px;
+	padding: 0 12px;
+	box-sizing: border-box;
+	background: #ffffff;
 }
-.tsar-kh-carousel-viewport {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
+.tsar-kh-slider-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 24px;
+	align-items: start;
+	position: relative;
 }
-.tsar-kh-carousel-track {
-  display: flex;
-  transition: transform 0.55s cubic-bezier(0.25, 0.8, 0.25, 1);
-  will-change: transform;
+.tsar-kh-slider-slot {
+	position: relative;
 }
-.tsar-kh-slide {
-  flex: 0 0 33.3333%;
-  max-width: 33.3333%;
-  padding: 0 10px;
-  box-sizing: border-box;
+.tsar-kh-slider-img-wrap {
+	width: 100%;
+	height: 360px;
+	overflow: hidden;
+	background: #111;
+	position: relative;
 }
-.tsar-kh-card {
-  position: relative;
-  overflow: hidden;
-  background: #040707;
-  height: 430px;
-  display: block;
-  text-decoration: none !important;
+.tsar-kh-slider-img-wrap img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	display: block;
+	transition: transform 0.6s ease;
 }
-.tsar-kh-card img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  transition: transform 0.65s ease, opacity 0.4s ease;
-  opacity: 0.88;
+.tsar-kh-slider-slot:hover .tsar-kh-slider-img-wrap img {
+	transform: scale(1.04);
 }
-.tsar-kh-card:hover img {
-  transform: scale(1.06);
-  opacity: 0.72;
+/* Overlapping dark box on the center card (exact match to K-Hotel .archive-show-content-bottom) */
+.tsar-kh-center-box {
+	background: #222222;
+	color: #ffffff;
+	width: 88%;
+	margin: -88px auto 0;
+	padding: 34px 28px 36px;
+	position: relative;
+	z-index: 5;
+	box-sizing: border-box;
+	min-height: 165px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-decoration: none !important;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
-.tsar-kh-card__overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 28px 24px 24px;
-  background: linear-gradient(to top, rgba(4, 7, 7, 0.92) 0%, rgba(4, 7, 7, 0.55) 65%, rgba(4, 7, 7, 0) 100%);
-  color: #fff;
+.tsar-kh-center-box h3 {
+	font-family: "Lato", sans-serif !important;
+	font-size: 19px !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.08em !important;
+	text-transform: uppercase;
+	color: #ffffff !important;
+	margin: 0 0 10px !important;
 }
-.tsar-kh-card__tag {
-  display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #e6ac98;
-  margin-bottom: 6px;
-  font-weight: 700;
+.tsar-kh-center-box p {
+	font-size: 13.5px;
+	font-weight: 300;
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.88);
+	margin: 0;
 }
-.tsar-kh-card__title {
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #fff;
-  margin: 0 0 8px;
+/* Square K-Hotel < and > buttons on the edges of the center card */
+.tsar-kh-sq-arrow {
+	position: absolute !important;
+	top: 154px !important;
+	width: 54px !important;
+	height: 54px !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: none !important;
+	border-radius: 0 !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	font-size: 24px !important;
+	font-weight: 700 !important;
+	cursor: pointer !important;
+	z-index: 15 !important;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+	transition: opacity 0.25s ease;
 }
-.tsar-kh-card__desc {
-  font-size: 14px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.88);
-  margin: 0;
-  font-weight: 300;
+.tsar-kh-sq-arrow:hover {
+	opacity: 0.9;
 }
-.tsar-kh-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
-  background: rgba(4, 7, 7, 0.78);
-  color: #fff;
-  border: 1px solid rgba(230, 172, 152, 0.55);
-  cursor: pointer;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  transition: all 0.25s ease;
+.tsar-kh-sq-arrow--prev {
+	background-color: #ffffff !important;
+	color: #e6ac98 !important;
+	left: calc(33.333% - 70px) !important;
 }
-.tsar-kh-arrow:hover {
-  background: #e6ac98;
-  color: #040707;
-}
-.tsar-kh-arrow--prev { left: 26px; }
-.tsar-kh-arrow--next { right: 26px; }
-.tsar-kh-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 18px;
-}
-.tsar-kh-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #cbd5e1;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-.tsar-kh-dot.is-active {
-  background: #e6ac98;
-  transform: scale(1.25);
+.tsar-kh-sq-arrow--next {
+	background-color: #e6ac98 !important;
+	color: #ffffff !important;
+	right: calc(33.333% - 70px) !important;
 }
 
-/* 4. K-Hotel "Discover Yaounde" Split Section (.fp-section-3) */
+/* 5. SECTION 3: K-HOTEL ROOMS & SUITES SHOWCASE (#packages) */
+.tsar-kh-rooms-sec {
+	padding: 64px 24px;
+	background: #fafafa;
+	border-top: 1px solid #f0f0f0;
+}
+.tsar-kh-rooms-sec__inner {
+	max-width: 1240px;
+	margin: 0 auto;
+}
+.tsar-kh-sec-head {
+	text-align: center;
+	margin-bottom: 44px;
+}
+.tsar-kh-sec-head span {
+	display: block;
+	color: #777777;
+	font-size: 12.5px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	margin-bottom: 8px;
+}
+.tsar-kh-sec-head h2 {
+	font-family: "Lato", sans-serif !important;
+	font-size: clamp(26px, 3.5vw, 40px) !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.08em !important;
+	text-transform: uppercase;
+	color: #111111 !important;
+	margin: 0 !important;
+}
+.tsar-kh-rooms-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 24px;
+}
+.tsar-kh-room-card {
+	background: #ffffff;
+	border: 1px solid #eaeaea;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tsar-kh-room-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+.tsar-kh-room-card__img {
+	position: relative;
+	height: 220px;
+	overflow: hidden;
+	background: #111;
+}
+.tsar-kh-room-card__img img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	display: block;
+}
+.tsar-kh-room-card__rate {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(4, 7, 7, 0.86);
+	color: #e6ac98;
+	font-size: 12.5px;
+	font-weight: 400;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	padding: 9px 16px;
+}
+.tsar-kh-room-card__body {
+	padding: 24px 20px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.tsar-kh-room-card__body h3 {
+	font-family: "Lato", sans-serif !important;
+	font-size: 18px !important;
+	font-weight: 400 !important;
+	letter-spacing: 0.08em !important;
+	text-transform: uppercase;
+	color: #111111 !important;
+	margin: 0 0 10px !important;
+}
+.tsar-kh-room-card__body p {
+	font-size: 14px;
+	line-height: 1.65;
+	color: #555555;
+	margin: 0 0 18px;
+}
+.tsar-kh-room-card__cta {
+	display: inline-block;
+	text-align: center;
+	background: #040707;
+	color: #ffffff !important;
+	font-size: 11.5px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	padding: 12px 16px;
+	transition: background 0.25s ease;
+}
+.tsar-kh-room-card__cta:hover {
+	background: #e6ac98;
+	color: #040707 !important;
+}
+
+/* 6. SECTION 4: K-HOTEL "DISCOVER YAOUNDE" STAGGERED SECTION (.fp-section-3) */
 .tsar-kh-discover {
-  padding: 64px 20px;
-  background: #f8f9ef;
-  margin: 48px 0 0;
+	padding: 76px 24px;
+	background: #f8f9ef;
 }
 .tsar-kh-discover__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.6fr;
-  gap: 24px;
-  align-items: stretch;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1.65fr;
+	gap: 26px;
+	align-items: stretch;
 }
 .tsar-kh-discover__col {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 }
-.tsar-kh-feature-box {
-  background: #292929;
-  color: #fff;
-  padding: 38px 22px;
-  text-align: center;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.tsar-kh-fbox {
+	background: #292929;
+	color: #ffffff;
+	padding: 44px 24px;
+	text-align: center;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-.tsar-kh-feature-box--light {
-  background: #ffffff;
-  color: #111;
-  border: 1px solid #e5e7eb;
+.tsar-kh-fbox--white {
+	background: #ffffff;
+	color: #111111;
 }
-.tsar-kh-feature-box h3 {
-  font-size: 20px !important;
-  text-transform: uppercase;
-  letter-spacing: 0.08em !important;
-  font-weight: 300 !important;
-  margin: 0 0 10px !important;
-  color: inherit !important;
+.tsar-kh-fbox h3 {
+	font-family: "Lato", sans-serif !important;
+	font-size: 20px !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.08em !important;
+	text-transform: uppercase;
+	color: inherit !important;
+	margin: 0 0 12px !important;
 }
-.tsar-kh-feature-box p {
-  font-size: 14px;
-  line-height: 1.65;
-  margin: 0;
-  opacity: 0.9;
+.tsar-kh-fbox p {
+	font-size: 14px;
+	line-height: 1.65;
+	color: inherit;
+	opacity: 0.88;
+	margin: 0;
 }
 .tsar-kh-discover__img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
+	width: 100% !important;
+	height: 230px !important;
+	object-fit: cover !important;
+	display: block;
 }
-.tsar-kh-discover__text {
-  padding: 20px 16px 20px 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.tsar-kh-discover__editorial {
+	padding: 16px 12px 16px 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-.tsar-kh-discover__kicker {
-  font-size: 13px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #777;
-  margin-bottom: 6px;
+.tsar-kh-discover__editorial h2 {
+	font-family: "Lato", sans-serif !important;
+	font-size: clamp(28px, 3.6vw, 44px) !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.06em !important;
+	text-transform: uppercase;
+	color: #111111 !important;
+	margin: 0 0 22px !important;
 }
-.tsar-kh-discover__text h2 {
-  font-size: clamp(28px, 3.8vw, 42px) !important;
-  font-weight: 300 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.06em !important;
-  color: #111 !important;
-  margin: 0 0 18px !important;
+.tsar-kh-discover__editorial p {
+	font-size: 15px;
+	line-height: 1.85;
+	color: #333333;
+	margin: 0 0 16px;
 }
-.tsar-kh-discover__text p {
-  font-size: 15.5px;
-  line-height: 1.8;
-  color: #333;
-  margin: 0 0 14px;
+.tsar-kh-discover__btn {
+	display: inline-block;
+	align-self: flex-start;
+	background: #e6ac98;
+	color: #ffffff !important;
+	font-size: 12px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	padding: 14px 28px;
+	margin-top: 8px;
 }
-
-/* 5. Room Package card booking buttons & hover polish */
-body.tsar-khotel-design .tsar-kh-room-btn {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 10px 20px;
-  background: #040707;
-  color: #e6ac98 !important;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none !important;
-  transition: all 0.25s ease;
-}
-body.tsar-khotel-design .tsar-kh-room-btn:hover {
-  background: #e6ac98;
-  color: #040707 !important;
+.tsar-kh-discover__btn:hover {
+	background: #040707;
 }
 
-/* 6. Scroll-reveal animation & Floating Scroll-to-Top button */
-.tsar-kh-reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+/* 7. SECTION 5: K-HOTEL 4-COLUMN ARCHITECTURAL FOOTER (#tsar-kh-footer) */
+#tsar-kh-footer {
+	background-color: #fbfbf9;
+	background-image: radial-gradient(#e5e0d8 0.75px, transparent 0.75px);
+	background-size: 22px 22px;
+	color: #222222;
+	padding: 72px 24px 0;
+	border-top: 1px solid #eceae4;
 }
-.tsar-kh-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.tsar-kh-footer__grid {
+	max-width: 1200px;
+	margin: 0 auto 56px;
+	display: grid;
+	grid-template-columns: 1.3fr 1fr 1fr 1.3fr;
+	gap: 36px;
 }
+.tsar-kh-footer__about p {
+	font-size: 14px;
+	line-height: 1.8;
+	color: #333333;
+	margin: 0 0 20px;
+}
+.tsar-kh-footer__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	color: #040707;
+	text-transform: uppercase;
+}
+.tsar-kh-footer__links {
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.tsar-kh-footer__links li {
+	margin: 0 0 14px !important;
+}
+.tsar-kh-footer__links a {
+	color: #222222 !important;
+	font-size: 14px;
+	font-weight: 300;
+	text-decoration: none !important;
+	transition: color 0.2s ease;
+}
+.tsar-kh-footer__links a:hover {
+	color: #e6ac98 !important;
+}
+.tsar-kh-footer__contact-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	margin-bottom: 18px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.tsar-kh-footer__icon {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	border: 1px solid #e6ac98;
+	color: #e6ac98;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+	flex-shrink: 0;
+	margin-top: 2px;
+}
+.tsar-kh-footer__contact-item small {
+	display: block;
+	font-size: 12px;
+	color: #777777;
+	margin-bottom: 3px;
+}
+.tsar-kh-footer__contact-item a,
+.tsar-kh-footer__contact-item span {
+	color: #111111 !important;
+	font-size: 14px;
+	font-weight: 400;
+	text-decoration: none !important;
+}
+.tsar-kh-footer__map-btn {
+	display: inline-block;
+	background: #e6ac98;
+	color: #ffffff !important;
+	font-size: 11.5px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	padding: 13px 22px;
+	margin-top: 4px;
+}
+.tsar-kh-footer__bar {
+	max-width: 1200px;
+	margin: 0 auto;
+	background: #040707;
+	color: rgba(255, 255, 255, 0.8);
+	padding: 18px 28px;
+	font-size: 12.5px;
+	letter-spacing: 0.06em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+/* Floating Scroll-to-Top button */
 #tsar-scroll-top {
-  position: fixed;
-  bottom: 26px;
-  right: 22px;
-  width: 44px;
-  height: 44px;
-  background: #040707;
-  color: #e6ac98;
-  border: 1px solid #e6ac98;
-  border-radius: 50%;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 9980;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+	position: fixed !important;
+	bottom: 24px !important;
+	right: 24px !important;
+	width: 44px !important;
+	height: 44px !important;
+	padding: 0 !important;
+	line-height: 44px !important;
+	border-radius: 50% !important;
+	background: #040707 !important;
+	color: #e6ac98 !important;
+	border: 1px solid #e6ac98 !important;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px !important;
+	cursor: pointer;
+	z-index: 9980;
 }
 #tsar-scroll-top.is-shown {
-  display: flex;
+	display: flex !important;
 }
 
-/* Responsive Tablet & Android rules for K-Hotel components */
+/* ==========================================================================
+   RESPONSIVE TABLET & ANDROID RULES (Matches khotel_mobile_1.jpg & 2.jpg)
+   ========================================================================== */
 @media (max-width: 991px) {
-  .tsar-kh-slide {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-  .tsar-kh-discover__inner {
-    grid-template-columns: 1fr 1fr;
-  }
-  .tsar-kh-discover__text {
-    grid-column: 1 / -1;
-    padding: 16px 4px;
-  }
-}
-@media (max-width: 767px) {
-  .tsar-kh-topbar__inner {
-    justify-content: center;
-    text-align: center;
-    font-size: 11px;
-  }
-  .tsar-kh-slide {
-    flex: 0 0 100%;
-    max-width: 100%;
-    padding: 0 4px;
-  }
-  .tsar-kh-card {
-    height: 360px;
-  }
-  .tsar-kh-discover__inner {
-    grid-template-columns: 1fr;
-  }
-  .tsar-kh-intro {
-    padding: 36px 16px 28px;
-  }
+	.tsar-kh-nav {
+		display: none !important;
+	}
+	.tsar-kh-rooms-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.tsar-kh-discover__inner {
+		grid-template-columns: 1fr 1fr;
+	}
+	.tsar-kh-discover__editorial {
+		grid-column: 1 / -1;
+		padding: 16px 4px;
+	}
+	.tsar-kh-footer__grid {
+		grid-template-columns: 1fr 1fr;
+	}
 }
 
-/* Version 1.2.2 Polish: Slimmer scrolled header, centered round slider arrows, round scroll-top */
-body.tsar-khotel-design.tsar-kh-scrolled #masthead .ast-primary-header-bar {
-  min-height: 0 !important;
-  padding-top: 4px !important;
-  padding-bottom: 2px !important;
-}
-body.tsar-khotel-design.tsar-kh-scrolled #masthead .ast-below-header-bar {
-  min-height: 42px !important;
-  padding-top: 2px !important;
-  padding-bottom: 4px !important;
-}
-body.tsar-khotel-design.tsar-kh-scrolled #masthead .custom-logo {
-  max-width: 82px !important;
-}
-body.tsar-khotel-design .tsar-kh-arrow {
-  position: absolute !important;
-  top: 42% !important;
-  bottom: auto !important;
-  transform: translateY(-50%) !important;
-  width: 44px !important;
-  height: 44px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  line-height: 44px !important;
-  border-radius: 50% !important;
-}
-body.tsar-khotel-design .tsar-kh-arrow--prev {
-  left: 24px !important;
-  right: auto !important;
-}
-body.tsar-khotel-design .tsar-kh-arrow--next {
-  right: 24px !important;
-  left: auto !important;
-}
-body.tsar-khotel-design #tsar-scroll-top {
-  width: 44px !important;
-  height: 44px !important;
-  padding: 0 !important;
-  line-height: 44px !important;
-  border-radius: 50% !important;
+@media (max-width: 767px) {
+	.tsar-kh-header__inner {
+		height: 70px;
+		padding: 0 16px;
+	}
+	.tsar-kh-logo img {
+		height: 44px !important;
+	}
+	.tsar-kh-logo__text {
+		font-size: 16px;
+		letter-spacing: 0.16em;
+	}
+	.tsar-kh-book-btn {
+		height: 38px;
+		padding: 0 14px;
+		font-size: 11px;
+		margin-left: 6px;
+	}
+	.tsar-kh-hero {
+		height: 52vh;
+		min-height: 320px;
+	}
+	.tsar-kh-intro {
+		padding: 44px 18px 36px;
+	}
+	/* On mobile, show only the active center slide + overlapping dark box + < > arrows */
+	.tsar-kh-slider-grid {
+		grid-template-columns: 1fr;
+	}
+	.tsar-kh-slider-slot--left,
+	.tsar-kh-slider-slot--right {
+		display: none !important;
+	}
+	.tsar-kh-sq-arrow--prev {
+		left: 12px !important;
+		top: 90px !important;
+		background-color: #e6ac98 !important;
+		color: #ffffff !important;
+	}
+	.tsar-kh-sq-arrow--next {
+		right: 12px !important;
+		top: 90px !important;
+	}
+	.tsar-kh-rooms-grid {
+		grid-template-columns: 1fr;
+	}
+	.tsar-kh-discover__inner {
+		grid-template-columns: 1fr;
+	}
+	.tsar-kh-footer__grid {
+		grid-template-columns: 1fr;
+		gap: 28px;
+	}
 }
