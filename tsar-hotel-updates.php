@@ -1,14 +1,16 @@
 <?php
 /**
  * Plugin Name: TSAR HOTEL Website Updates
- * Description: Reversible navigation repairs, empty social-link cleanup, configurable enquiry panels, and optional homepage SEO for TSAR HOTEL.
- * Version: 1.0.0
+ * Description: Reversible navigation repairs, Android/mobile layout fixes, empty social-link cleanup, configurable enquiry panels, and optional homepage SEO for TSAR HOTEL.
+ * Version: 1.1.0
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: TSAR HOTEL project
  * License: GPL-2.0-or-later
+ * Plugin URI: https://github.com/Xkeshx/tsar-hotel-updates
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Update URI: false
+ * GitHub Plugin URI: https://github.com/Xkeshx/tsar-hotel-updates
+ * Primary Branch: main
  * Text Domain: tsar-hotel-updates
  */
 
@@ -19,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class Plugin {
-	const VERSION = '1.0.0';
+	const VERSION = '1.1.0';
 	const OPTION = 'tsar_hotel_updates_settings';
 	const GROUP = 'tsar_hotel_updates_group';
 	const PAGE = 'tsar-hotel-updates';
@@ -31,6 +33,7 @@ final class Plugin {
 		return array(
 			'menu_repair' => 1,
 			'hide_empty_socials' => 1,
+			'mobile_layout_fixes' => 1,
 			'contact_panel' => 0,
 			'home_seo' => 0,
 			'demo_noindex' => 0,
@@ -99,16 +102,208 @@ final class Plugin {
 	}
 
 	public function body_classes( $classes ) {
-		if ( ! empty( $this->options()['hide_empty_socials'] ) ) {
+		$options = $this->options();
+		if ( ! empty( $options['hide_empty_socials'] ) ) {
 			$classes[] = 'tsar-updates-clean-socials';
+		}
+		if ( ! empty( $options['mobile_layout_fixes'] ) ) {
+			$classes[] = 'tsar-updates-mobile-fixes';
 		}
 		return $classes;
 	}
 
+	public static function inline_css() {
+		return '/* Scoped, local-only styles. No fonts, scripts, cookies or external assets. */
+body.tsar-updates-clean-socials #colophon a.ast-builder-social-element[href=""],
+body.tsar-updates-clean-socials #colophon a.ast-builder-social-element[href="#"],
+body.tsar-updates-clean-socials #colophon a.ast-builder-social-element:not([href]) {
+  display: none !important;
+}
+
+.tsar-updates-contact {
+  --tsar-ink: #192b37;
+  --tsar-gold: #806019;
+  --tsar-border: #decba2;
+  box-sizing: border-box;
+  display: block;
+  position: static;
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem 0 1.5rem;
+  padding: clamp(1rem, 2.5vw, 1.65rem);
+  color: var(--tsar-ink);
+  background: #fffdf8;
+  border: 1px solid var(--tsar-border);
+  border-top: 3px solid #b08935;
+  border-radius: 12px;
+  font: inherit;
+  overflow-wrap: anywhere;
+}
+.tsar-updates-contact *,
+.tsar-updates-contact *::before,
+.tsar-updates-contact *::after {
+  box-sizing: border-box;
+}
+.tsar-updates-contact .tsar-updates-contact__brand {
+  margin: 0 0 .45rem;
+  color: var(--tsar-gold);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .065em;
+  line-height: 1.5;
+}
+.tsar-updates-contact h2 {
+  margin: 0 0 .45rem;
+  color: var(--tsar-ink);
+  font-family: inherit;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+.tsar-updates-contact .tsar-updates-contact__note {
+  margin: 0;
+  max-width: 75ch;
+  color: #445460;
+  font-size: .925rem;
+  line-height: 1.65;
+}
+.tsar-updates-contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: .65rem;
+  margin-top: 1rem;
+}
+.tsar-updates-contact a.tsar-updates-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  max-width: 100%;
+  padding: .7rem 1rem;
+  border: 1px solid #192b37;
+  border-radius: 7px;
+  background: #192b37;
+  color: #fff;
+  font-family: inherit;
+  font-size: .925rem;
+  font-weight: 650;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  box-shadow: none;
+}
+.tsar-updates-contact a.tsar-updates-action--whatsapp {
+  background: #126946;
+  border-color: #126946;
+}
+.tsar-updates-contact a.tsar-updates-action--email {
+  background: #fffdf8;
+  color: #192b37;
+}
+.tsar-updates-contact a.tsar-updates-action:hover {
+  filter: brightness(.92);
+  text-decoration: none;
+}
+.tsar-updates-contact a:focus-visible {
+  outline: 3px solid #936508;
+  outline-offset: 4px;
+}
+.tsar-updates-contact__profiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1.1rem;
+  margin-top: 1rem;
+  padding-top: .9rem;
+  border-top: 1px solid #e7ddc8;
+}
+.tsar-updates-contact__profiles a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #415260;
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+@media (max-width: 520px) {
+  .tsar-updates-contact__actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tsar-updates-contact a.tsar-updates-action {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+/* Reversible Android / mobile layout fixes (toggleable in Settings -> TSAR HOTEL Updates) */
+body.tsar-updates-mobile-fixes #colophon h2.wp-block-heading,
+body.tsar-updates-mobile-fixes .site-footer h2.wp-block-heading {
+  color: #f3e5ab !important;
+}
+
+@media (max-width: 782px) {
+  /* 1. Prevent "Home" page title from colliding with the Astra Transparent Header logo on Android */
+  body.home.tsar-updates-mobile-fixes .entry-header {
+    display: none !important;
+  }
+  body.home.ast-theme-transparent-header.tsar-updates-mobile-fixes #masthead {
+    position: relative !important;
+    background-color: #162232 !important;
+  }
+  body.home.ast-theme-transparent-header.tsar-updates-mobile-fixes #ast-mobile-header .ast-main-header-wrap {
+    background-color: #162232 !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  /* 2. Restore the collapsed About Us photo on narrow Android viewports (<= 480px) */
+  body.tsar-updates-mobile-fixes #about .wp-block-spectra-container,
+  body.tsar-updates-mobile-fixes #about figure.wp-block-image,
+  body.tsar-updates-mobile-fixes #about figure.wp-block-image img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 3. Unhide the 3 mobile-hidden Gallery photos and stack cleanly on Android */
+  body.tsar-updates-mobile-fixes #gallery figure.spectra-hide-mobile,
+  body.tsar-updates-mobile-fixes #gallery figure.spectra-hide-tablet {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 14px 0 !important;
+  }
+  body.tsar-updates-mobile-fixes #gallery figure.wp-block-image img {
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: cover !important;
+  }
+}
+
+@media print {
+  .tsar-updates-contact {
+    break-inside: avoid;
+  }
+}
+';
+	}
+
 	public function enqueue_styles() {
 		$options = $this->options();
-		if ( ! empty( $options['hide_empty_socials'] ) || ! empty( $options['contact_panel'] ) || is_singular() ) {
-			wp_enqueue_style( 'tsar-hotel-updates', plugins_url( 'assets/front.css', __FILE__ ), array(), self::VERSION );
+		if ( ! empty( $options['hide_empty_socials'] ) || ! empty( $options['mobile_layout_fixes'] ) || ! empty( $options['contact_panel'] ) || is_singular() ) {
+			$css_file = __DIR__ . '/assets/front.css';
+			if ( file_exists( $css_file ) ) {
+				wp_enqueue_style( 'tsar-hotel-updates', plugins_url( 'assets/front.css', __FILE__ ), array(), self::VERSION );
+			} else {
+				wp_register_style( 'tsar-hotel-updates', false, array(), self::VERSION );
+				wp_enqueue_style( 'tsar-hotel-updates' );
+				wp_add_inline_style( 'tsar-hotel-updates', self::inline_css() );
+			}
 		}
 	}
 
@@ -138,7 +333,7 @@ final class Plugin {
 	public function sanitize( $input ) {
 		$input = is_array( $input ) ? $input : array();
 		$output = self::defaults();
-		foreach ( array( 'menu_repair', 'hide_empty_socials', 'contact_panel', 'home_seo', 'demo_noindex', 'brand_heading' ) as $key ) {
+		foreach ( array( 'menu_repair', 'hide_empty_socials', 'mobile_layout_fixes', 'contact_panel', 'home_seo', 'demo_noindex', 'brand_heading' ) as $key ) {
 			$output[ $key ] = isset( $input[ $key ] ) && is_scalar( $input[ $key ] ) && '1' === (string) $input[ $key ] ? 1 : 0;
 		}
 		$output['language'] = isset( $input['language'] ) && 'fr' === $input['language'] ? 'fr' : 'en';
@@ -406,6 +601,7 @@ final class Plugin {
 		echo '<h2>1. Verified technical repairs</h2><table class="form-table" role="presentation">';
 		$this->checkbox( 'menu_repair', 'Repair section-menu links', 'Changes only #about, #amenities, #gallery and #packages menu destinations to the homepage. Stored menus are not rewritten.' );
 		$this->checkbox( 'hide_empty_socials', 'Hide empty social icons', 'Hides only empty or placeholder Astra footer social links. Working links remain visible.' );
+		$this->checkbox( 'mobile_layout_fixes', 'Apply Android / mobile layout repairs', 'Fixes the mobile homepage header/title overlap, restores the collapsed About Us image on phones (<= 480px), unhides the 3 mobile-hidden Gallery images, and improves dark footer heading contrast.' );
 		echo '</table><h2>2. Approved reception contacts</h2><p>Enter only contacts the hotel owns, monitors and approves. Do not enter passwords or API keys.</p><table class="form-table" role="presentation">';
 		$this->text_field( 'phone', 'Reception telephone', 'Use the full international number including its country code. Leave blank until confirmed.', 'tel' );
 		$this->text_field( 'whatsapp', 'WhatsApp Business number', 'Enter separately; a published telephone number is not assumed to be active on WhatsApp.', 'tel' );
