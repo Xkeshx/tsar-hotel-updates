@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TSAR HOTEL Website Updates
  * Description: Reversible navigation repairs, Android/mobile layout fixes, empty social-link cleanup, configurable enquiry panels, and optional homepage SEO for TSAR HOTEL.
- * Version: 1.2.1
+ * Version: 1.2.2
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: TSAR HOTEL project
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class Plugin {
-	const VERSION = '1.2.1';
+	const VERSION = '1.2.2';
 	const OPTION = 'tsar_hotel_updates_settings';
 	const GROUP = 'tsar_hotel_updates_group';
 	const PAGE = 'tsar-hotel-updates';
@@ -760,6 +760,48 @@ body.tsar-khotel-design .tsar-kh-room-btn:hover {
   .tsar-kh-intro {
     padding: 36px 16px 28px;
   }
+}
+
+/* Version 1.2.2 Polish: Slimmer scrolled header, centered round slider arrows, round scroll-top */
+body.tsar-khotel-design.tsar-kh-scrolled #masthead .ast-primary-header-bar {
+  min-height: 0 !important;
+  padding-top: 4px !important;
+  padding-bottom: 2px !important;
+}
+body.tsar-khotel-design.tsar-kh-scrolled #masthead .ast-below-header-bar {
+  min-height: 42px !important;
+  padding-top: 2px !important;
+  padding-bottom: 4px !important;
+}
+body.tsar-khotel-design.tsar-kh-scrolled #masthead .custom-logo {
+  max-width: 82px !important;
+}
+body.tsar-khotel-design .tsar-kh-arrow {
+  position: absolute !important;
+  top: 42% !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+  width: 44px !important;
+  height: 44px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 44px !important;
+  border-radius: 50% !important;
+}
+body.tsar-khotel-design .tsar-kh-arrow--prev {
+  left: 24px !important;
+  right: auto !important;
+}
+body.tsar-khotel-design .tsar-kh-arrow--next {
+  right: 24px !important;
+  left: auto !important;
+}
+body.tsar-khotel-design #tsar-scroll-top {
+  width: 44px !important;
+  height: 44px !important;
+  padding: 0 !important;
+  line-height: 44px !important;
+  border-radius: 50% !important;
 }
 ';
 	}
