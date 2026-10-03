@@ -865,3 +865,238 @@ body.home.tsar-khotel-design .entry-content > .tsar-kh-slider-section {
 		gap: 28px;
 	}
 }
+
+/* ==========================================================================
+   VERSION 1.4.0: WORDPRESS ADMIN BAR FIX + INNER PAGES LUXURY STYLING
+   (/accommodations/, /reservations/, /accommodation/studio-suite/, etc.)
+   ========================================================================== */
+body.admin-bar #tsar-kh-header {
+	top: 32px !important;
+}
+@media (max-width: 782px) {
+	body.admin-bar #tsar-kh-header {
+		top: 46px !important;
+	}
+}
+
+/* Fix invisible white-on-white links inside MotoPress / Astra content */
+body.tsar-khotel-design .mphb-room-type-title,
+body.tsar-khotel-design .mphb-room-type-title a,
+body.tsar-khotel-design .mphb-loop-room-type-attributes a,
+body.tsar-khotel-design .mphb-single-room-type-attributes a {
+	color: #111111 !important;
+	text-decoration: none !important;
+}
+body.tsar-khotel-design .mphb-loop-room-type-attributes a:hover,
+body.tsar-khotel-design .mphb-single-room-type-attributes a:hover {
+	color: #e6ac98 !important;
+}
+
+/* Show & style .entry-header on inner pages (keep hidden on homepage) */
+body.tsar-khotel-design:not(.home) .entry-header {
+	display: block !important;
+	background: #0b1117;
+	color: #ffffff;
+	text-align: center;
+	padding: 54px 24px 48px !important;
+	margin: 0 0 44px !important;
+	border-bottom: 2px solid #e6ac98;
+}
+body.tsar-khotel-design:not(.home) .entry-header .entry-title {
+	font-family: "Lato", sans-serif !important;
+	font-size: clamp(28px, 4vw, 44px) !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.12em !important;
+	text-transform: uppercase !important;
+	color: #ffffff !important;
+	margin: 0 !important;
+}
+
+/* Hide blog author/date/comment meta & comment form on hotel room pages */
+body.tsar-khotel-design .entry-meta,
+body.tsar-khotel-design #comments,
+body.tsar-khotel-design .comments-area,
+body.tsar-khotel-design .post-navigation {
+	display: none !important;
+}
+
+/* Inner page container width & breathing room */
+body.tsar-khotel-design:not(.home) #content .ast-container {
+	max-width: 1180px !important;
+	margin: 0 auto !important;
+	padding: 0 20px 64px !important;
+	box-sizing: border-box !important;
+}
+body.tsar-khotel-design:not(.home) #primary {
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+/* Style /accommodations/ Room Cards in a 2-Column K-Hotel Luxury Grid */
+body.tsar-khotel-design .mphb_sc_rooms-wrapper.mphb-room-types {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 32px;
+	margin-top: 10px;
+}
+body.tsar-khotel-design .mphb_sc_rooms-wrapper .mphb-room-type {
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	padding: 0 0 28px !important;
+	margin: 0 !important;
+	box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+.tsar-kh-injected-room-banner {
+	width: 100%;
+	height: 260px;
+	overflow: hidden;
+	background: #111;
+	margin-bottom: 22px;
+	position: relative;
+}
+.tsar-kh-injected-room-banner img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	display: block;
+}
+body.tsar-khotel-design .mphb_sc_rooms-wrapper .mphb-room-type > *:not(.tsar-kh-injected-room-banner) {
+	padding-left: 26px !important;
+	padding-right: 26px !important;
+}
+body.tsar-khotel-design .mphb-room-type-title {
+	font-family: "Lato", sans-serif !important;
+	font-size: 24px !important;
+	font-weight: 300 !important;
+	letter-spacing: 0.08em !important;
+	text-transform: uppercase;
+	margin: 0 0 12px !important;
+}
+body.tsar-khotel-design .mphb-loop-room-type-attributes,
+body.tsar-khotel-design .mphb-single-room-type-attributes {
+	list-style: none !important;
+	margin: 12px 0 18px !important;
+	padding: 14px 18px !important;
+	background: #f8f9ef;
+	border-left: 3px solid #e6ac98;
+}
+body.tsar-khotel-design .mphb-loop-room-type-attributes li,
+body.tsar-khotel-design .mphb-single-room-type-attributes li {
+	margin: 6px 0 !important;
+	font-size: 14px;
+	color: #222 !important;
+}
+body.tsar-khotel-design .mphb-regular-price {
+	font-size: 16px !important;
+	margin: 12px 0 20px !important;
+	color: #111 !important;
+}
+body.tsar-khotel-design .mphb-price {
+	color: #040707 !important;
+	font-weight: 700 !important;
+	font-size: 20px !important;
+}
+
+/* Replace yellow Astra buttons on inner pages with K-Hotel Obsidian & Rose-Gold buttons */
+body.tsar-khotel-design .mphb-view-details-button,
+body.tsar-khotel-design .mphb-book-button,
+body.tsar-khotel-design .mphb_sc_search-submit-button-wrapper input[type="submit"],
+body.tsar-khotel-design .mphb-reserve-btn {
+	background-color: #040707 !important;
+	color: #ffffff !important;
+	border: 1px solid #040707 !important;
+	border-radius: 0 !important;
+	font-family: "Lato", sans-serif !important;
+	font-size: 12px !important;
+	font-weight: 400 !important;
+	letter-spacing: 0.2em !important;
+	text-transform: uppercase !important;
+	padding: 13px 26px !important;
+	text-decoration: none !important;
+	display: inline-block !important;
+	cursor: pointer !important;
+	transition: all 0.25s ease !important;
+}
+body.tsar-khotel-design .mphb-book-button,
+body.tsar-khotel-design .mphb_sc_search-submit-button-wrapper input[type="submit"],
+body.tsar-khotel-design .mphb-reserve-btn {
+	background-color: #e6ac98 !important;
+	color: #040707 !important;
+	border-color: #e6ac98 !important;
+	font-weight: 700 !important;
+}
+body.tsar-khotel-design .mphb-view-details-button:hover,
+body.tsar-khotel-design .mphb-book-button:hover,
+body.tsar-khotel-design .mphb_sc_search-submit-button-wrapper input[type="submit"]:hover,
+body.tsar-khotel-design .mphb-reserve-btn:hover {
+	background-color: #292929 !important;
+	color: #ffffff !important;
+	border-color: #292929 !important;
+}
+
+/* Style /reservations/ & Room Reservation Form into a K-Hotel Luxury Card */
+body.tsar-khotel-design .mphb_sc_search-wrapper,
+body.tsar-khotel-design .mphb-booking-form {
+	background: #f8f9ef;
+	border: 1px solid #e5e0d8;
+	padding: 36px 32px !important;
+	max-width: 880px;
+	margin: 0 auto 36px !important;
+	box-sizing: border-box;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+body.tsar-khotel-design .mphb_sc_search-form input[type="text"],
+body.tsar-khotel-design .mphb_sc_search-form select,
+body.tsar-khotel-design .mphb-booking-form input[type="text"],
+body.tsar-khotel-design .mphb-booking-form select {
+	width: 100% !important;
+	max-width: 100% !important;
+	height: 46px !important;
+	padding: 0 14px !important;
+	border: 1px solid #d1d5db !important;
+	border-radius: 0 !important;
+	background: #ffffff !important;
+	font-size: 14px !important;
+	box-sizing: border-box !important;
+}
+
+/* Fix MotoPress 2-month Availability Calendar horizontal overflow on Android (431px -> 100%) */
+body.tsar-khotel-design .mphb-calendar,
+body.tsar-khotel-design .datepick-multi,
+body.tsar-khotel-design .datepick {
+	max-width: 100% !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+	overflow-x: auto !important;
+}
+body.tsar-khotel-design .datepick-month {
+	max-width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+@media (max-width: 767px) {
+	body.tsar-khotel-design:not(.home) .entry-header {
+		padding: 36px 14px 32px !important;
+	}
+	body.tsar-khotel-design:not(.home) .entry-header .entry-title {
+		font-size: 21px !important;
+		letter-spacing: 0.08em !important;
+		word-break: normal !important;
+	}
+	body.tsar-khotel-design .mphb_sc_rooms-wrapper.mphb-room-types {
+		grid-template-columns: 1fr;
+	}
+	body.tsar-khotel-design .datepick-month {
+		width: 100% !important;
+		float: none !important;
+	}
+	body.tsar-khotel-design .mphb_sc_search-wrapper,
+	body.tsar-khotel-design .mphb-booking-form {
+		padding: 24px 18px !important;
+	}
+}
