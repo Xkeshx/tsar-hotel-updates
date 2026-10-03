@@ -1453,7 +1453,7 @@ body.tsar-khotel-design .datepick-month {
 					</div>
 					<div class="tsar-kh-room-card">
 						<div class="tsar-kh-room-card__img">
-							<img src="' . $u . '2020/06/hotel-linens.jpg" alt="Executive Suite at TSAR HOTEL" loading="lazy" />
+							<img src="' . $u . '2020/08/executive-suite-free-img.jpg" alt="Executive Suite at TSAR HOTEL" loading="lazy" />
 							<div class="tsar-kh-room-card__rate">XAF 30,000 / Night</div>
 						</div>
 						<div class="tsar-kh-room-card__body">
@@ -1466,7 +1466,7 @@ body.tsar-khotel-design .datepick-month {
 					</div>
 					<div class="tsar-kh-room-card">
 						<div class="tsar-kh-room-card__img">
-							<img src="' . $u . '2025/10/double-room-free-img-300x300-1.jpg" alt="Double Room at TSAR HOTEL" loading="lazy" />
+							<img src="' . $u . '2020/08/double-room-free-img.jpg" alt="Double Room at TSAR HOTEL" loading="lazy" />
 							<div class="tsar-kh-room-card__rate">XAF 25,000 / Night</div>
 						</div>
 						<div class="tsar-kh-room-card__body">
@@ -1479,7 +1479,7 @@ body.tsar-khotel-design .datepick-month {
 					</div>
 					<div class="tsar-kh-room-card">
 						<div class="tsar-kh-room-card__img">
-							<img src="' . $u . '2025/10/hotel-single-room-300x300-1.jpg" alt="Single Room at TSAR HOTEL" loading="lazy" />
+							<img src="' . $u . '2020/08/hotel-single-room.jpg" alt="Single Room at TSAR HOTEL" loading="lazy" />
 							<div class="tsar-kh-room-card__rate">XAF 20,000 / Night</div>
 						</div>
 						<div class="tsar-kh-room-card__body">
@@ -1717,7 +1717,7 @@ body.tsar-khotel-design .datepick-month {
 					url: suiteUrl
 				},
 				{
-					img: upUrl + '2020/06/hotel-linens.jpg',
+					img: upUrl + '2020/08/executive-suite-free-img.jpg',
 					title: 'SEAMLESS RESERVATIONS',
 					desc: '24/7 reception, room service, high-speed Wi-Fi and direct online booking for your stay in Yaoundé.',
 					url: resUrl
@@ -1776,7 +1776,7 @@ body.tsar-khotel-design .datepick-month {
 				if (!rc.querySelector('.tsar-kh-injected-room-banner')) {
 					var titleEl = rc.querySelector('.mphb-room-type-title');
 					var tText = titleEl ? (titleEl.textContent || '').toLowerCase() : '';
-					var rImg = tText.indexOf('studio') !== -1 ? (upUrl + '2020/08/slide1-free-img.jpg') : (upUrl + '2025/10/double-room-free-img-300x300-1.jpg');
+					var rImg = tText.indexOf('studio') !== -1 ? (upUrl + '2020/08/slide1-free-img.jpg') : (upUrl + '2020/08/double-room-free-img.jpg');
 					var banner = document.createElement('div');
 					banner.className = 'tsar-kh-injected-room-banner';
 					banner.innerHTML = '<img src="' + rImg + '" alt="TSAR HOTEL Room" />';
@@ -1787,7 +1787,7 @@ body.tsar-khotel-design .datepick-month {
 			if (singleRoom && !singleRoom.querySelector('.tsar-kh-injected-room-banner')) {
 				var pageTitle = document.querySelector('.entry-header .entry-title');
 				var pText = pageTitle ? (pageTitle.textContent || '').toLowerCase() : '';
-				var sImg = pText.indexOf('studio') !== -1 ? (upUrl + '2020/08/slide1-free-img.jpg') : (upUrl + '2020/06/hotel-linens.jpg');
+				var sImg = pText.indexOf('studio') !== -1 ? (upUrl + '2020/08/slide1-free-img.jpg') : (upUrl + '2020/08/executive-suite-free-img.jpg');
 				var sBanner = document.createElement('div');
 				sBanner.className = 'tsar-kh-injected-room-banner';
 				sBanner.style.height = '380px';
